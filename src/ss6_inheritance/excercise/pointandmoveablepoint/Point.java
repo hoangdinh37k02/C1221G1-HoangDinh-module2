@@ -1,12 +1,12 @@
-package ss6_inheritance.excercise.point2dand3d;
+package ss6_inheritance.excercise.pointandmoveablepoint;
 
-public class Point2D {
-    private float x =0;
-    private float y =0;
+public class Point {
+    private float x;
+    private float y;
 
-    public Point2D(){}
+    public Point(){}
 
-    public Point2D(float x, float y){
+    public Point(float x, float y){
         this.x = x;
         this.y = y;
     }
@@ -27,9 +27,9 @@ public class Point2D {
         return y;
     }
 
-    public void setXY(float x, float y) {
-        this.x = x;
-        this.y = y;
+    public void  setXY(float x, float y){
+        this.x=x;
+        this.y=y;
     }
 
     public float[] getXY(){
@@ -41,7 +41,7 @@ public class Point2D {
 
     @Override
     public String toString() {
-        return "Point2D{" +
+        return "Point {" +
                 "x=" + x +
                 ", y=" + y +
                 '}';

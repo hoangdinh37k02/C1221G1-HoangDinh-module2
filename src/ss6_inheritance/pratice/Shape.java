@@ -2,7 +2,7 @@ package ss6_inheritance.pratice;
 
 import com.sun.org.apache.xpath.internal.objects.XString;
 
-public class Geometry {
+
     public class Shape {
         private String color = "green";
         private boolean filled = true;
@@ -39,6 +39,4 @@ public class Geometry {
                     + (isFilled() ? "filled" : "not filled");
         }
     }
-
-}
 
