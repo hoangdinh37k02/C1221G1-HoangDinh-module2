@@ -1,8 +1,8 @@
 package ss6_inheritance.excercise.pointandmoveablepoint;
 
 public class MovablePoint extends Point {
-    private float xSpeed;
-    private float ySpeed;
+    private float xSpeed = 1.0f;
+    private float ySpeed=2.0f;
 
     public MovablePoint(){}
 
@@ -45,6 +45,12 @@ public class MovablePoint extends Point {
         return array1;
     }
 
+    public MovablePoint move(){
+        super.setX(this.getX() + xSpeed);
+        super.setY(this.getY()+ySpeed);
+        return this;
+    }
+
     @Override
     public String toString() {
         return "Point {" +
@@ -56,6 +62,5 @@ public class MovablePoint extends Point {
                 ", ySpeed=" + ySpeed +
                 '}';
     }
-
 
 }
