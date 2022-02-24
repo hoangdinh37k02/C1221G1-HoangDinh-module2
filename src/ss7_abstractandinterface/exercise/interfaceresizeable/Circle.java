@@ -1,7 +1,5 @@
 package ss7_abstractandinterface.exercise.interfaceresizeable;
 
-import ss6_inheritance.pratice.Shape;
-
 public class Circle extends Shape implements Resizeable{
     private double radius = 1.0;
 

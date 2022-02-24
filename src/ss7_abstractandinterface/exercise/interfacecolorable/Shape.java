@@ -1,16 +1,14 @@
-package ss6_inheritance.pratice;
-
-import com.sun.org.apache.xpath.internal.objects.XString;
+package ss7_abstractandinterface.exercise.interfacecolorable;
 
 
-public class Shape {
+public class Shape implements Colorable{
     private String color = "green";
     private boolean filled = true;
 
     public Shape(){
     }
 
-    public Shape (String color, boolean filled) {
+    public Shape(String color, boolean filled) {
         this.color = color;
         this.filled = filled;
     }
@@ -29,6 +27,11 @@ public class Shape {
 
     public void setFilled(boolean filled) {
         this.filled = filled;
+    }
+
+    @Override
+    public void howToColor() {
+        System.out.println("Color all four sides");
     }
 
     @Override

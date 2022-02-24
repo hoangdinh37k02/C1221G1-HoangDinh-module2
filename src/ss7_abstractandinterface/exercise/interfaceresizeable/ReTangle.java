@@ -1,7 +1,5 @@
 package ss7_abstractandinterface.exercise.interfaceresizeable;
 
-import ss6_inheritance.pratice.Shape;
-
 public class ReTangle extends Shape implements Resizeable {
     private double width = 1.0;
     private double length = 1.0;

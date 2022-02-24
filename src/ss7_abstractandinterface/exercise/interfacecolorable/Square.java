@@ -2,41 +2,32 @@ package ss7_abstractandinterface.exercise.interfacecolorable;
 
 import ss6_inheritance.pratice.ReTangle;
 
-public class Square extends ReTangle {
+public class Square extends Shape {
+    private double side = 1.0;
     public Square(){};
 
-    public Square(double side) {
-        super(side, side);
+    public Square(String color, boolean filled, double side) {
+        super(color, filled);
+        this.side = side;
     }
 
-    public Square(double side, String color, boolean filled){
-        super(side, side, color, filled);
+    public void setSide(double side) {
+        this.side = side;
     }
 
-    public double getSide(){
-        return getWidth();
+    public double getSide() {
+        return side;
     }
 
-    public void setSide(double side){
-        setWidth(side);
-        setLength(side);
-    }
-
-    @Override
-    public void setWidth(double width){
-        setSide(width);
-    }
-
-    @Override
-    public void setLength(double length) {
-        setSide(length);
+    public double getArea(){
+        return this.side*this.side;
     }
 
     @Override
     public String toString() {
-        return "A Square with side="
-                + getSide()
-                + ", which is a subclass of "
-                + super.toString();
+        return "Square{" +
+                "side=" + side +
+                " area " + getArea()+
+                '}';
     }
 }
