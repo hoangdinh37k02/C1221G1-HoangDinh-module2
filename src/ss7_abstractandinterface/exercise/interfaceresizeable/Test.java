@@ -11,6 +11,7 @@ public class Test {
             System.out.println("pre-change radius");
             System.out.println(circle);
             circle.resize(Math.random());
+            System.out.println("--------------------");
         }
 
         ReTangle[] reTangles = new ReTangle[2];
@@ -21,6 +22,7 @@ public class Test {
             System.out.println("pre-change width and length");
             System.out.println(reTangle);
             reTangle.resize(Math.random());
+            System.out.println("--------------------");
         }
 
         Square[] squares= new Square[1];
@@ -30,6 +32,7 @@ public class Test {
             System.out.println("pre-change side");
             System.out.println(square);
             square.resize(Math.random());
+            System.out.println("--------------------");
         }
     }
 }

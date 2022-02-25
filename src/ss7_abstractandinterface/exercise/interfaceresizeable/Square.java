@@ -23,7 +23,7 @@ public class Square extends ReTangle implements Resizeable{
     @Override
     public void resize(double percent) {
         setSide(super.getWidth()+ super.getWidth()*percent);
-        System.out.println("Area after increase the side "+ percent+ "% is: " +getArea());
+        System.out.println("Area after increase the side "+ percent*100+ "% is: " +getArea());
     }
 
     @Override

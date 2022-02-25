@@ -35,14 +35,12 @@ public class Circle extends Shape implements Resizeable{
     @Override
     public void resize(double percent) {
         this.setRadius(radius+radius*percent);
-        System.out.println("Area after increase the radius "+ percent+ " % is: "+getArea());
+        System.out.println("Area after increase the radius "+ percent*100+ "% is: "+getArea());
     }
 
     @Override
     public String toString() {
         return "A Circle with radius="
-                + getRadius()+ " area " + getArea()
-                + ", which is a subclass of "
-                + super.toString();
+                + getRadius()+ " area " + getArea();
     }
 }

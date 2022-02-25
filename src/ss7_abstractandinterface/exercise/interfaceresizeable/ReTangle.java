@@ -47,7 +47,7 @@ public class ReTangle extends Shape implements Resizeable {
     public void resize(double percent) {
         this.setWidth(width+width*percent);
         this.setLength(length+length*percent);
-        System.out.println("the area after increase width and length to "+ percent+ " % is " + this.getArea());
+        System.out.println("the area after increase width and length to "+ percent*100+ "% is " + this.getArea());
     }
 
     @Override
