@@ -4,15 +4,15 @@ public abstract class Vehicle {
     private String numberPlate;
     private String manufacturer;
     private int yearOfManufacture;
-    private String owner;
+    private String host;
 
     public Vehicle(){}
 
-    public Vehicle(String numberPlate, String manufacturer, int yearOfManufacture, String owner) {
+    public Vehicle(String numberPlate, String manufacturer, int yearOfManufacture, String host) {
         this.numberPlate = numberPlate;
         this.manufacturer = manufacturer;
         this.yearOfManufacture = yearOfManufacture;
-        this.owner = owner;
+        this.host = host;
     }
 
     public String getNumberPlate() {
@@ -39,12 +39,12 @@ public abstract class Vehicle {
         this.yearOfManufacture = yearOfManufacture;
     }
 
-    public String getOwner() {
-        return owner;
+    public String getHost() {
+        return host;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
+    public void setHost(String host) {
+        this.host = host;
     }
 
     public abstract void add();

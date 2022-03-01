@@ -1,5 +1,7 @@
 package oop_review.extra_exercise;
 
+import java.util.Scanner;
+
 public class Truck extends Vehicle{
     private int truckLoad;
 
@@ -9,8 +11,8 @@ public class Truck extends Vehicle{
         this.truckLoad = truckLoad;
     }
 
-    public Truck(String numberPlate, String manufacturer, int yearOfManufacture, String owner, int truckLoad) {
-        super(numberPlate, manufacturer, yearOfManufacture, owner);
+    public Truck(String numberPlate, String manufacturer, int yearOfManufacture, String host, int truckLoad) {
+        super(numberPlate, manufacturer, yearOfManufacture, host);
         this.truckLoad = truckLoad;
     }
 
@@ -24,7 +26,19 @@ public class Truck extends Vehicle{
 
     @Override
     public void add() {
+        Scanner inputtruck=new Scanner(System.in);
+        System.out.println("Nhập biển số: ");
+        setNumberPlate(inputtruck.nextLine());
+        System.out.println("Nhập nhà sx: ");
+        setManufacturer(inputtruck.nextLine());
+        System.out.println("Nhập năm sx: ");
+        setYearOfManufacture(inputtruck.nextInt());
+        System.out.println("Nhập tên chủ sở hữu: ");
 
+        setHost(inputtruck.nextLine());
+
+        System.out.println("Nhập tải trọng: ");
+        setTruckLoad(inputtruck.nextInt());
     }
 
     @Override

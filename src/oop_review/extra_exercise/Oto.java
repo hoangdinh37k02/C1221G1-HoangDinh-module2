@@ -1,5 +1,7 @@
 package oop_review.extra_exercise;
 
+import java.util.Scanner;
+
 public class Oto extends Vehicle{
     private int numberOfSeat;
     private String typeOf;
@@ -11,8 +13,8 @@ public class Oto extends Vehicle{
         this.typeOf=typeOf;
     }
 
-    public Oto(String numberPlate, String manufacturer, int yearOfManufacture, String owner, int numberOfSeat, String typeOf) {
-        super(numberPlate, manufacturer, yearOfManufacture, owner);
+    public Oto(String numberPlate, String manufacturer, int yearOfManufacture, String host, int numberOfSeat, String typeOf) {
+        super(numberPlate, manufacturer, yearOfManufacture, host);
         this.numberOfSeat = numberOfSeat;
         this.typeOf = typeOf;
     }
@@ -35,7 +37,19 @@ public class Oto extends Vehicle{
 
     @Override
     public void add() {
-
+        Scanner input=new Scanner(System.in);
+        System.out.println("Nhập biển số: ");
+        setNumberPlate(input.nextLine());
+        System.out.println("Nhập nhà sx: ");
+        setManufacturer(input.nextLine());
+        System.out.println("Nhập năm sx: ");
+        setYearOfManufacture(input.nextInt());
+        System.out.println("Nhập tên chủ sở hữu: ");
+        setHost(input.nextLine());
+        System.out.println("Nhập số ghế: ");
+        setNumberOfSeat(input.nextInt());
+        System.out.println("Nhập loại xe:");
+        setTypeOf(input.nextLine());
     }
 
     @Override
