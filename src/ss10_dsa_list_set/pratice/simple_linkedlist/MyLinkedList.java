@@ -1,7 +1,5 @@
 package ss10_dsa_list_set.pratice.simple_linkedlist;
 
-import javafx.scene.Node;
-
 public class MyLinkedList {
     private Node head;
     private int numNopes;
