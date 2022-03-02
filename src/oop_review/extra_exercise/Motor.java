@@ -34,7 +34,7 @@ public class Motor extends Vehicle{
         System.out.println("Nhập năm sx");
         setYearOfManufacture(inputmotor.nextInt());
         System.out.println("Nhập CSH");
-        setHost(inputmotor.nextLine());
+        setHost(inputmotor.nextLine());setHost(inputmotor.nextLine());
         System.out.println("Nhập dung tích");
         setCapacity(inputmotor.nextInt());
     }

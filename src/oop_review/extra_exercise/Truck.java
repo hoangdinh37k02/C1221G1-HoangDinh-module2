@@ -34,7 +34,7 @@ public class Truck extends Vehicle{
         System.out.println("Nhập năm sx: ");
         setYearOfManufacture(inputtruck.nextInt());
         System.out.println("Nhập tên chủ sở hữu: ");
-        setHost(inputtruck.nextLine());inputtruck.nextLine();
+        setHost(inputtruck.nextLine());setHost(inputtruck.nextLine());
         System.out.println("Nhập tải trọng: ");
         setTruckLoad(inputtruck.nextInt());
     }

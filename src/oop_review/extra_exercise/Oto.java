@@ -45,11 +45,11 @@ public class Oto extends Vehicle{
         System.out.println("Nhập năm sx: ");
         setYearOfManufacture(input.nextInt());
         System.out.println("Nhập tên chủ sở hữu: ");
-        setHost(input.nextLine());
+        setHost(input.nextLine());setHost(input.nextLine());
         System.out.println("Nhập số ghế: ");
         setNumberOfSeat(input.nextInt());
         System.out.println("Nhập loại xe:");
-        setTypeOf(input.nextLine());
+        setTypeOf(input.nextLine());setTypeOf(input.nextLine());
     }
 
     @Override
