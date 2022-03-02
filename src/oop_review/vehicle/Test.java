@@ -11,7 +11,7 @@ public class Test {
         do {
             System.out.println("Menu công việc:");
             System.out.println("1. Nhập thông tin xe");
-            System.out.println("2. Xuất bảng kê khai tiền thuế các xe");
+            System.out.println("2. Xuất bảng kê khai tiền thuế xe");
             System.out.println("0. Thoát");
             System.out.println("Nhập lựa chọn của bạn: ");
             choice = input.nextInt();
@@ -32,6 +32,8 @@ public class Test {
                     break;
                 case 0:
                     System.exit(0);
+                default:
+                    System.out.println("Can nhap dung");
             }
         } while (choice!=0);
 
