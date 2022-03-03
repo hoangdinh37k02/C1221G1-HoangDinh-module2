@@ -78,7 +78,6 @@ public class Main {
                         System.out.println("1. Hiển thị xe tải");
                         System.out.println("2. Hiển thị ô tô");
                         System.out.println("3. Hiển thị xe máy");
-                        System.out.println("4. Thoát");
                         System.out.println("Vui lòng lựa chọn");
                         displayChoice=input.nextInt();
 
@@ -117,26 +116,67 @@ public class Main {
                         }
                         break;
                 case 3:
-                    System.out.println("Vui lòng nhập biển số xe cần xóa: ");
-                    String deleteNumberPlate;
-                    deleteNumberPlate = input.nextLine();deleteNumberPlate = input.nextLine();
-                    for (int i=0; i<truckList.size(); i++){
-                        if (truckList.get(i).getNumberPlate().equals(deleteNumberPlate)){
-                            truckList.remove(i);
-                            System.out.println("Xe tải đã được xóa: " +truckList.get(i).getNumberPlate());
-                        }
-                    }
-                    for (int i=0; i<otoList.size(); i++){
-                        if (otoList.get(i).getNumberPlate().equals(deleteNumberPlate)){
-                            otoList.remove(i);
-                            System.out.println("Oto đã được xóa: " +otoList.get(i).getNumberPlate());
-                        }
-                    }
-                    for (int i=0; i<motorList.size(); i++){
-                        if (motorList.get(i).getNumberPlate().equals(deleteNumberPlate)){
-                            motorList.remove(i);
-                            System.out.println("Xe máy đã được xóa: " +motorList.get(i).getNumberPlate());
-                        }
+                    System.out.println("1. Xóa xe tải");
+                    System.out.println("2. Xóa ô tô");
+                    System.out.println("3. Xóa xe máy");
+                    System.out.println("Vui lòng lựa chọn");
+                    int deleteChoice = input.nextInt();
+
+                    switch (deleteChoice){
+                        case 1:
+                            System.out.print("Vui lòng nhập biển số xe cần xóa: ");
+                            String deleteTruckNumberPlate;
+
+                            deleteTruckNumberPlate= input.nextLine();
+                            deleteTruckNumberPlate= input.nextLine();
+                            int truckIndex=-1;
+                            for (int i=0; i<truckList.size(); i++){
+                                if (truckList.get(i).getNumberPlate().equals(deleteTruckNumberPlate)){
+                                    truckIndex=i;
+                                    break;
+                                }
+                            }
+                            if (truckIndex==-1){
+                                System.out.println("Xe không tồn tại");
+                            } else {
+                                truckList.remove(truckIndex);
+                            }
+                            break;
+                        case 2:
+                            System.out.println("Vui lòng nhập biển số xe cần xóa: ");
+                            String deleteOtoNumberPlate= input.nextLine();
+                            int otoIndex=-1;
+                            for (int i=0; i<otoList.size(); i++){
+                                if (otoList.get(i).getNumberPlate().equals(deleteOtoNumberPlate)){
+                                    otoIndex=i;
+                                    break;
+                                }
+                            }
+                            if (otoIndex==-1){
+                                System.out.println("Xe không tồn tại");
+                            } else {
+                                otoList.remove(otoIndex);
+                            }
+                            break;
+                        case 3:
+                            System.out.println("Vui lòng nhập biển số xe cần xóa: ");
+                            String deleteMotorNumberPlate= input.nextLine();
+                            int motorIndex=-1;
+                            for (int i=0; i<otoList.size(); i++){
+                                if (motorList.get(i).getNumberPlate().equals(deleteMotorNumberPlate)){
+                                    motorIndex=i;
+                                    break;
+                                }
+                            }
+                            if (motorIndex==-1){
+                                System.out.println("Xe không tồn tại");
+                            } else {
+                                otoList.remove(motorIndex);
+                            }
+                            break;
+                        default:
+                            System.out.println("Lựa chọn không hợp lệ");
+                            break;
                     }
                     break;
                 case 4:

@@ -1,8 +1,5 @@
-package oop_review.bank_account;
+package oop_review.oop1.bank_account;
 
-import sun.security.mscapi.CPublicKey;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Test {

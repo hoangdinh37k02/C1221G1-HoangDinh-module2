@@ -26,17 +26,17 @@ public class Truck extends Vehicle{
 
     @Override
     public void add() {
-        Scanner inputtruck=new Scanner(System.in);
-        System.out.println("Nhập biển số: ");
-        setNumberPlate(inputtruck.nextLine());
-        System.out.println("Nhập nhà sx: ");
-        setManufacturer(inputtruck.nextLine());
-        System.out.println("Nhập năm sx: ");
-        setYearOfManufacture(inputtruck.nextInt());
-        System.out.println("Nhập tên chủ sở hữu: ");
-        setHost(inputtruck.nextLine());setHost(inputtruck.nextLine());
-        System.out.println("Nhập tải trọng: ");
-        setTruckLoad(inputtruck.nextInt());
+        Scanner inputTruck=new Scanner(System.in);
+        System.out.print("Nhập biển số: ");
+        setNumberPlate(inputTruck.nextLine());
+        System.out.print("Nhập nhà sx: ");
+        setManufacturer(inputTruck.nextLine());
+        System.out.print("Nhập năm sx: ");
+        setYearOfManufacture(inputTruck.nextInt());
+        System.out.print("Nhập tên chủ sở hữu: ");
+        setHost(inputTruck.nextLine());setHost(inputTruck.nextLine());
+        System.out.print("Nhập tải trọng: ");
+        setTruckLoad(inputTruck.nextInt());
     }
 
     @Override

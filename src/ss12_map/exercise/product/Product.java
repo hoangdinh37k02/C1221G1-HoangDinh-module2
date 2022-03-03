@@ -44,14 +44,14 @@ public class Product implements Comparable<Product>{
     Scanner input = new Scanner(System.in);
     List<Product> list = new ArrayList<>();
     public void add(){
-        Product product1=new Product();
-        System.out.println("Nhập tên SP: ");
-        product1.setName(input.nextLine());input.nextLine();
-        System.out.println("Nhập SKU: ");
-        product1.setSku(input.nextInt());
-        System.out.println("Nhập giá: ");
-        product1.setPrice(input.nextDouble());
-        list.add(product1);
+        System.out.print("Nhập tên SP: ");
+        String name =input.nextLine();
+        System.out.print("Nhập SKU: ");
+        int sku =  Integer.parseInt(input.nextLine());
+        System.out.print("Nhập giá: ");
+        double price = Double.parseDouble(input.nextLine());
+        Product product = new Product(sku, name, price);
+        list.add(product);
     }
 
     public void edit(){
@@ -73,17 +73,19 @@ public class Product implements Comparable<Product>{
             list.get(index).setSku(input.nextInt());
             System.out.print("Tên SP sửa lại là:");
             list.get(index).setName(input.nextLine());
+            list.get(index).setName(input.nextLine());
             System.out.print("Giá SP sửa lại là:");
             list.get(index).setPrice(input.nextDouble());
         }
     }
 
     public void delete(){
-        System.out.print("Nhập SKU của sản phẩm cần xóa:");
-        int findSku = input.nextInt();
+        System.out.print("Nhập tên của sản phẩm cần xóa:");
+        String deleteName = input.nextLine();
+
         int index = -1;
         for (int i=0; i<list.size(); i++){
-            if (findSku == list.get(i).getSku()){
+            if (list.get(i).getName().equals(deleteName)){
                 index=i;
                 break;
             } else {
@@ -129,21 +131,21 @@ public class Product implements Comparable<Product>{
     public void find(){
         System.out.print("Nhập tên sản phẩm cần tìm:");
         String findName = input.nextLine();
-        int index = -1;
+        int findIndex = -1;
         for (int i=0; i<list.size(); i++){
-            if (findName == list.get(i).getName()){
-                index=i;
+            if (list.get(i).getName().equals(findName)){
+                findIndex=i;
                 break;
             } else {
-                index=-1;
+                findIndex=-1;
             }
         }
-        if (index==-1){
+        if (findIndex==-1){
             System.out.println("SP không tồn tại");
         } else {
-            System.out.println("Tên SP: "+list.get(index).getName()+
-                    "; SKU: "+list.get(index).getSku()+
-                    "; Giá: "+list.get(index).getPrice());
+            System.out.println("Tên SP: "+list.get(findIndex).getName()+
+                    "; SKU: "+list.get(findIndex).getSku()+
+                    "; Giá: "+list.get(findIndex).getPrice());
         }
     }
 

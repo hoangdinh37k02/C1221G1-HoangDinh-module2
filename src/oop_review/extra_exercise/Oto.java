@@ -38,17 +38,17 @@ public class Oto extends Vehicle{
     @Override
     public void add() {
         Scanner input=new Scanner(System.in);
-        System.out.println("Nhập biển số: ");
+        System.out.print("Nhập biển số: ");
         setNumberPlate(input.nextLine());
-        System.out.println("Nhập nhà sx: ");
+        System.out.print("Nhập nhà sx: ");
         setManufacturer(input.nextLine());
-        System.out.println("Nhập năm sx: ");
+        System.out.print("Nhập năm sx: ");
         setYearOfManufacture(input.nextInt());
-        System.out.println("Nhập tên chủ sở hữu: ");
+        System.out.print("Nhập tên chủ sở hữu: ");
         setHost(input.nextLine());setHost(input.nextLine());
-        System.out.println("Nhập số ghế: ");
+        System.out.print("Nhập số ghế: ");
         setNumberOfSeat(input.nextInt());
-        System.out.println("Nhập loại xe:");
+        System.out.print("Nhập loại xe:");
         setTypeOf(input.nextLine());setTypeOf(input.nextLine());
     }
 

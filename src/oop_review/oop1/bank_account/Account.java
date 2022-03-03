@@ -1,6 +1,4 @@
-package oop_review.bank_account;
-
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+package oop_review.oop1.bank_account;
 
 public class Account {
     private long account;

@@ -27,15 +27,15 @@ public class Motor extends Vehicle{
     @Override
     public void add() {
         Scanner inputmotor=new Scanner(System.in);
-        System.out.println("Nhập biển số");
+        System.out.print("Nhập biển số");
         setNumberPlate(inputmotor.nextLine());
-        System.out.println("Nhập nhà sx");
+        System.out.print("Nhập nhà sx");
         setManufacturer(inputmotor.nextLine());
-        System.out.println("Nhập năm sx");
+        System.out.print("Nhập năm sx");
         setYearOfManufacture(inputmotor.nextInt());
-        System.out.println("Nhập CSH");
+        System.out.print("Nhập CSH");
         setHost(inputmotor.nextLine());setHost(inputmotor.nextLine());
-        System.out.println("Nhập dung tích");
+        System.out.print("Nhập dung tích");
         setCapacity(inputmotor.nextInt());
     }
 

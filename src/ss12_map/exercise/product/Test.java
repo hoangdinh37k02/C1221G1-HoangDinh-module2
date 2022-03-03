@@ -7,11 +7,15 @@ public class Test {
         Product product = new Product();
         product.add();
         product.add();
-        product.add();
+//        product.add();
         product.display();
 //        product.edit();
 //        product.display();
-        product.sortBySku();
-        product.sortByPrice();
+        product.find();
+        product.delete();
+        product.display();
+
+//        product.sortBySku();
+//        product.sortByPrice();
     }
 }

@@ -1,4 +1,4 @@
-package oop_review.vehicle;
+package oop_review.oop1.vehicle;
 
 public class Vehicle {
     private int value;
