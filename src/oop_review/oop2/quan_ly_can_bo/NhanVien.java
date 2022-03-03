@@ -16,4 +16,10 @@ public class NhanVien extends Canbo {
         this.congViec = congViec;
     }
 
+    @Override
+    public String toString() {
+        return "NhanVien{" +
+                "congViec='" + congViec + '\'' +
+                '}'+super.toString();
+    }
 }

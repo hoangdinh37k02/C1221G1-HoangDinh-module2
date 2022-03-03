@@ -24,7 +24,7 @@ public class Main {
             System.out.println("3. Xóa phương tiện");
             System.out.println("4. Thoát");
             System.out.println("Vui lòng lựa chọn");
-            choice = input.nextInt();
+            choice = Integer.parseInt(input.nextLine());
 
             switch (choice){
                 case 1:
@@ -32,7 +32,7 @@ public class Main {
                         System.out.println("2. Thêm ô tô");
                         System.out.println("3. Thêm xe máy");
                         System.out.println("Vui lòng lựa chọn");
-                        addingChoice=input.nextInt();
+                        addingChoice=Integer.parseInt(input.nextLine());
 
                         switch (addingChoice){
                             case 1:
@@ -79,7 +79,7 @@ public class Main {
                         System.out.println("2. Hiển thị ô tô");
                         System.out.println("3. Hiển thị xe máy");
                         System.out.println("Vui lòng lựa chọn");
-                        displayChoice=input.nextInt();
+                        displayChoice=Integer.parseInt(input.nextLine());
 
                         switch (displayChoice) {
                             case 1:
@@ -120,15 +120,13 @@ public class Main {
                     System.out.println("2. Xóa ô tô");
                     System.out.println("3. Xóa xe máy");
                     System.out.println("Vui lòng lựa chọn");
-                    int deleteChoice = input.nextInt();
+                    int deleteChoice = Integer.parseInt(input.nextLine());
 
                     switch (deleteChoice){
                         case 1:
                             System.out.print("Vui lòng nhập biển số xe cần xóa: ");
                             String deleteTruckNumberPlate;
-
-                            deleteTruckNumberPlate= input.nextLine();
-                            deleteTruckNumberPlate= input.nextLine();
+                            deleteTruckNumberPlate= String.valueOf(input.nextLine());
                             int truckIndex=-1;
                             for (int i=0; i<truckList.size(); i++){
                                 if (truckList.get(i).getNumberPlate().equals(deleteTruckNumberPlate)){
@@ -144,7 +142,7 @@ public class Main {
                             break;
                         case 2:
                             System.out.println("Vui lòng nhập biển số xe cần xóa: ");
-                            String deleteOtoNumberPlate= input.nextLine();
+                            String deleteOtoNumberPlate= String.valueOf(input.nextLine());
                             int otoIndex=-1;
                             for (int i=0; i<otoList.size(); i++){
                                 if (otoList.get(i).getNumberPlate().equals(deleteOtoNumberPlate)){
@@ -160,7 +158,7 @@ public class Main {
                             break;
                         case 3:
                             System.out.println("Vui lòng nhập biển số xe cần xóa: ");
-                            String deleteMotorNumberPlate= input.nextLine();
+                            String deleteMotorNumberPlate= String.valueOf(input.nextLine());
                             int motorIndex=-1;
                             for (int i=0; i<otoList.size(); i++){
                                 if (motorList.get(i).getNumberPlate().equals(deleteMotorNumberPlate)){

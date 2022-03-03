@@ -15,4 +15,11 @@ public class CongNhan extends Canbo{
     public void setBac(int bac) {
         this.bac = bac;
     }
+
+    @Override
+    public String toString() {
+        return "CongNhan{" +
+                "bac=" + bac +
+                '}'+super.toString();
+    }
 }

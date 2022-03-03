@@ -1,6 +1,6 @@
 package oop_review.oop2.quan_ly_can_bo;
 
-public class Canbo {
+public class Canbo implements Comparable<Canbo>{
     private String hoTen;
     private int namSinh;
     private String gioiTinh;
@@ -50,4 +50,18 @@ public class Canbo {
     }
 
 
+    @Override
+    public int compareTo(Canbo o) {
+        return this.getHoTen().compareTo(o.getHoTen());
+    }
+
+    @Override
+    public String toString() {
+        return "Canbo{" +
+                "hoTen='" + hoTen + '\'' +
+                ", namSinh=" + namSinh +
+                ", gioiTinh='" + gioiTinh + '\'' +
+                ", diaChi='" + diaChi + '\'' +
+                '}';
+    }
 }

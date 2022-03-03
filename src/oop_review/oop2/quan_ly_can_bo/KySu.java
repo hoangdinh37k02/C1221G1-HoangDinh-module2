@@ -16,4 +16,10 @@ public class KySu extends Canbo{
         this.nganhDaotao = nganhDaotao;
     }
 
+    @Override
+    public String toString() {
+        return "KySu{" +
+                "nganhDaotao='" + nganhDaotao + '\'' +
+                '}'+super.toString();
+    }
 }
