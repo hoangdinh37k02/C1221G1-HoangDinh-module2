@@ -4,7 +4,7 @@ public class Fresher extends Candidates {
     private int yearOfGra;
     private String rankOfGra;
 
-    public Fresher(){
+    public Fresher(int i, int i1, int i2, String s, String hai, String tran, String hn, String s1, int i3, String good, String it){
 
     }
 
