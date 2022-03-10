@@ -25,4 +25,17 @@ public class Experience extends Candidate{
     public void setProSkill(String proSkill) {
         this.proSkill = proSkill;
     }
+
+    public String getInfoToCSV(){
+        return this.getCandidateId()+","+this.getBirthDay()+","+this.getCandidateType()+","+this.getFirstName()+","+this.getLastName()+","+this.getPhone()+","+
+                this.getAddress()+","+this.getEmail()+","+this.yearOfExp+","+this.getProSkill();
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Experience{" +
+//                "yearOfExp=" + yearOfExp +
+//                ", proSkill='" + proSkill + '\'' +
+//                '}';
+//    }
 }

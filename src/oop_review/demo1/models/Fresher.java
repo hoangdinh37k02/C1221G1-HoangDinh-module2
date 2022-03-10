@@ -34,4 +34,11 @@ public class Fresher extends Candidate {
     public void setUniversity(String university) {
         this.university = university;
     }
+
+    public String getInfoToCSV(){
+        return this.getCandidateId()+","+this.getBirthDay()+","+this.getCandidateType()+
+                ","+this.getFirstName()+","+this.getLastName()+","+this.getPhone()+","+
+                this.getAddress()+","+this.getEmail()+","+this.getGraduationTime()+","+
+                this.getGraduationRank()+","+this.getUniversity();
+    }
 }

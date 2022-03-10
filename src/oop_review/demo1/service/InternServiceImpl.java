@@ -3,8 +3,10 @@ package oop_review.demo1.service;
 import oop_review.demo1.models.Experience;
 import oop_review.demo1.models.Fresher;
 import oop_review.demo1.models.Intern;
+import oop_review.demo1.util.ReadAndWriteCSV;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class InternServiceImpl implements ICandidate {
@@ -31,12 +33,16 @@ public class InternServiceImpl implements ICandidate {
 
         Intern intern = new Intern(candidateId,birthDay,candidateType,firstName,lastName,phone,address,email,major,university);
         internArrayList.add(intern);
-        CANDIDATE_ARRAY_LIST.add(intern);
+//        CANDIDATE_ARRAY_LIST.add(intern);
+        ReadAndWriteCSV.writeInternToCSV(internArrayList,true);
     }
 
     @Override
     public void display() {
-
+        List<Intern> internList = ReadAndWriteCSV.readInternFromCSV();
+        for (int i=0; i<internList.size(); i++){
+            System.out.println((i+1)+". "+internList.get(i));
+        }
     }
 
     @Override

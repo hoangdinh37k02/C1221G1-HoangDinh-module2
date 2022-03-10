@@ -27,7 +27,7 @@ public class ControllerCandidate {
                     experienceService.add();
                     String answer;
                     do {
-                        System.out.print("Do you want to continue? Y/N");
+                        System.out.println("Do you want to continue? Y/N");
                         answer = scanner.nextLine().toUpperCase();
                         if ("Y".contains(answer)){
                             experienceService.add();
@@ -40,12 +40,12 @@ public class ControllerCandidate {
                     fresherService.add();
                     String answer1;
                     do {
-                        System.out.print("Do you want to continue? Y/N");
+                        System.out.println("Do you want to continue? Y/N");
                         answer1 = scanner.nextLine().toUpperCase();
                         if ("Y".contains(answer1)){
                             fresherService.add();
                         } else {
-                            experienceService.display();
+                            fresherService.display();
                         }
                     }while ("Y".contains(answer1));
                     break;
@@ -53,17 +53,19 @@ public class ControllerCandidate {
                     internService.add();
                     String answer2;
                     do {
-                        System.out.print("Do you want to continue? Y/N");
+                        System.out.println("Do you want to continue? Y/N");
                         answer2 = scanner.nextLine().toUpperCase();
                         if ("Y".contains(answer2)){
                             internService.add();
                         } else {
-                            experienceService.display();
+                            internService.display();
                         }
                     }while ("Y".contains(answer2));
                     break;
                 case 4:
                     experienceService.display();
+                    fresherService.display();
+                    internService.display();
                     int choice1;
                     do {
                         System.out.println("Enter type of candidate that you want to find: (0: Experience; 1: Fresher; 2: Intern)");

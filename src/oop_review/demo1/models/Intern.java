@@ -25,5 +25,8 @@ public class Intern extends Candidate {
         this.university = university;
     }
 
-
+    public String getInfoToCSV(){
+        return this.getCandidateId()+","+this.getBirthDay()+","+this.getCandidateType()+","+this.getFirstName()+","+this.getLastName()+","+this.getPhone()+","+
+                this.getAddress()+","+this.getEmail()+","+this.getMajor()+","+this.getUniversity();
+    }
 }

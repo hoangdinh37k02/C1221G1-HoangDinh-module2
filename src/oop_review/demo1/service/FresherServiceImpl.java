@@ -2,8 +2,10 @@ package oop_review.demo1.service;
 
 import oop_review.demo1.models.Experience;
 import oop_review.demo1.models.Fresher;
+import oop_review.demo1.util.ReadAndWriteCSV;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class FresherServiceImpl implements ICandidate {
@@ -12,11 +14,11 @@ public class FresherServiceImpl implements ICandidate {
     String[] rankOfGraduation = {"Excellent","Good","Fair","Poor"};
 
     static ArrayList<Fresher> fresherArrayList=new ArrayList<>();
-    static {
-        Fresher fresher = new Fresher(2001,1999,1,"Son","Tran","0935662717", "DN","@gmail.com",2022,"good","UDA");
-        fresherArrayList.add(fresher);
-        CANDIDATE_ARRAY_LIST.add(fresher);
-    }
+//    static {
+//        Fresher fresher = new Fresher(2001,1999,1,"Son","Tran","0935662717", "DN","@gmail.com",2022,"good","UDA");
+//        fresherArrayList.add(fresher);
+////        CANDIDATE_ARRAY_LIST.add(fresher);
+//    }
     Scanner scanner=new Scanner(System.in);
 
     @Override
@@ -26,7 +28,7 @@ public class FresherServiceImpl implements ICandidate {
         graduationTime=Integer.parseInt(scanner.nextLine());
         int choice;
         do {
-            System.out.print("Enter rank of graduation: (1. Excellent; 2. Good; 3. Fair; 4.Poor");
+            System.out.println("Enter rank of graduation: (1. Excellent; 2. Good; 3. Fair; 4.Poor)");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice){
                 case 1:
@@ -52,12 +54,16 @@ public class FresherServiceImpl implements ICandidate {
 
         Fresher fresher=new Fresher(candidateId,birthDay,candidateType,firstName,lastName,phone,address,email,graduationTime,graduationRank,university);
         fresherArrayList.add(fresher);
-        CANDIDATE_ARRAY_LIST.add(fresher);
+//        CANDIDATE_ARRAY_LIST.add(fresher);
+        ReadAndWriteCSV.writeFresherToCSV(fresherArrayList,true);
     }
 
     @Override
     public void display() {
-
+        List<Fresher> fresherList = ReadAndWriteCSV.readFresherFromCSV();
+        for (int i=0; i<fresherList.size(); i++){
+            System.out.println((i+1)+"."+fresherList.get(i));
+        }
     }
 
     @Override

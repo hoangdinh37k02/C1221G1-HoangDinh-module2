@@ -2,8 +2,12 @@ package oop_review.demo1.service;
 
 import oop_review.demo1.models.Candidate;
 import oop_review.demo1.models.Experience;
+import oop_review.demo1.models.Intern;
+import oop_review.demo1.util.ReadAndWriteCSV;
+import ss16_io_text_file.exercise.copyfile.ReadAndWrite;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ExperienceServiceImpl implements ICandidate {
@@ -11,9 +15,9 @@ public class ExperienceServiceImpl implements ICandidate {
     private String firstName, lastName, phone, address, email, proSkill;
     static ArrayList<Experience> experienceArrayList = new ArrayList<>();
     static {
-        Experience experience = new Experience(1001, 1994,0,"Ha","Nguyen","0907553617","HN","@gmail.com",2,"java");
+        Experience experience = new Experience(1001, 1994,0,"Ha","Nguyen","0907553617","HN","gmail.com",2,"java");
         experienceArrayList.add(experience);
-        CANDIDATE_ARRAY_LIST.add(experience);
+//        CANDIDATE_ARRAY_LIST.add(experience);
     }
     Scanner scanner=new Scanner(System.in);
 
@@ -31,13 +35,15 @@ public class ExperienceServiceImpl implements ICandidate {
         proSkill = scanner.nextLine();
         Experience experience = new Experience(candidateId,birthDay,candidateType,firstName,lastName,phone,address,email,yearOfExp,proSkill);
         experienceArrayList.add(experience);
-        CANDIDATE_ARRAY_LIST.add(experience);
+//        CANDIDATE_ARRAY_LIST.add(experience);
+        ReadAndWriteCSV.writeExperienceToCSV(experienceArrayList,true);
     }
 
     @Override
     public void display() {
-        for (Candidate candidate:CANDIDATE_ARRAY_LIST) {
-            System.out.println(candidate);
+        List<Experience> experienceList = ReadAndWriteCSV.readExperienceFromCSV();
+        for (int i=0; i<experienceList.size(); i++){
+            System.out.println((i+1)+". "+experienceList.get(i));
         }
     }
 
