@@ -14,11 +14,11 @@ public class FresherServiceImpl implements ICandidate {
     String[] rankOfGraduation = {"Excellent","Good","Fair","Poor"};
 
     static ArrayList<Fresher> fresherArrayList=new ArrayList<>();
-//    static {
-//        Fresher fresher = new Fresher(2001,1999,1,"Son","Tran","0935662717", "DN","@gmail.com",2022,"good","UDA");
-//        fresherArrayList.add(fresher);
-////        CANDIDATE_ARRAY_LIST.add(fresher);
-//    }
+    static {
+        Fresher fresher = new Fresher(2001,1999,1,"Son","Tran","0935662717", "DN","@gmail.com",2022,"good","UDA");
+        fresherArrayList.add(fresher);
+//        CANDIDATE_ARRAY_LIST.add(fresher);
+    }
     Scanner scanner=new Scanner(System.in);
 
     @Override
