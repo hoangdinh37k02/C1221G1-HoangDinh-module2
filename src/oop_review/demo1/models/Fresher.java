@@ -4,7 +4,9 @@ public class Fresher extends Candidate {
     private int graduationTime;
     private String graduationRank, university;
 
-    public Fresher(int candidateId, int birthDay, int candidateType, String firstName, String lastName, String phone, String address, String email, int graduationTime, String graduationRank, String university) {
+    public Fresher(int candidateId, int birthDay, int candidateType, String firstName, String lastName,
+                   String phone, String address, String email,
+                   int graduationTime, String graduationRank, String university) {
         super(candidateId, birthDay, candidateType, firstName, lastName, phone, address, email);
         this.graduationTime = graduationTime;
         this.graduationRank = graduationRank;

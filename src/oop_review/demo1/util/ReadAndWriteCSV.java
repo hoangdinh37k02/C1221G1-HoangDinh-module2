@@ -98,7 +98,8 @@ public class ReadAndWriteCSV {
             while ((line = bufferedReader.readLine()) != null) {
                 arr = line.split(",");
                 Fresher fresher = new Fresher(Integer.parseInt(arr[0]), Integer.parseInt(arr[1]),
-                        Integer.parseInt(arr[2]), arr[3], arr[4], arr[5], arr[6], arr[7], Integer.parseInt(arr[8]), arr[9], arr[10]);
+                        Integer.parseInt(arr[2]), arr[3], arr[4], arr[5], arr[6], arr[7],
+                        Integer.parseInt(arr[8]), arr[9], arr[10]);
                 fresherList.add(fresher);
 
             }
