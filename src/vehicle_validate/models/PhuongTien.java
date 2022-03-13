@@ -1,12 +1,11 @@
 package vehicle_validate.models;
 
 public class PhuongTien {
-    private String bienKiemSoat, hangSanxuat, chuSoHuu;
-    private int namSX;
+    private String bienKiemSoat, hangSanxuat, chuSoHuu, namSX;
 
     public PhuongTien(){}
 
-    public PhuongTien(String bienKiemSoat, String hangSanxuat, String chuSoHuu, int namSX) {
+    public PhuongTien(String bienKiemSoat, String hangSanxuat, String chuSoHuu, String namSX) {
         this.bienKiemSoat = bienKiemSoat;
         this.hangSanxuat = hangSanxuat;
         this.chuSoHuu = chuSoHuu;
@@ -37,11 +36,11 @@ public class PhuongTien {
         this.chuSoHuu = chuSoHuu;
     }
 
-    public int getNamSX() {
+    public String getNamSX() {
         return namSX;
     }
 
-    public void setNamSX(int namSX) {
+    public void setNamSX(String namSX) {
         this.namSX = namSX;
     }
 

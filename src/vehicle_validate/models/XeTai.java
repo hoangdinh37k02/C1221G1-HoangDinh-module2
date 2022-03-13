@@ -5,7 +5,7 @@ public class XeTai extends PhuongTien{
 
     public XeTai(){}
 
-    public XeTai(String bienKiemSoat, String hangSanxuat, String chuSoHuu, int namSX, int trongTai) {
+    public XeTai(String bienKiemSoat, String hangSanxuat, String chuSoHuu, String namSX, int trongTai) {
         super(bienKiemSoat, hangSanxuat, chuSoHuu, namSX);
         this.trongTai = trongTai;
     }
@@ -16,5 +16,9 @@ public class XeTai extends PhuongTien{
 
     public void setTrongTai(int trongTai) {
         this.trongTai = trongTai;
+    }
+
+    public String getBaseInfo(){
+        return super.getBienKiemSoat()+","+this.getHangSanxuat()+","+this.getChuSoHuu()+","+this.getNamSX()+","+this.getTrongTai();
     }
 }

@@ -5,7 +5,7 @@ public class XeMay extends PhuongTien{
 
     public XeMay(){}
 
-    public XeMay(String bienKiemSoat, String hangSanxuat, String chuSoHuu, int namSX, int congSuat) {
+    public XeMay(String bienKiemSoat, String hangSanxuat, String chuSoHuu, String namSX, int congSuat) {
         super(bienKiemSoat, hangSanxuat, chuSoHuu, namSX);
         this.congSuat = congSuat;
     }
@@ -16,5 +16,9 @@ public class XeMay extends PhuongTien{
 
     public void setCongSuat(int congSuat) {
         this.congSuat = congSuat;
+    }
+
+    public String getBaseInfo(){
+        return super.getBienKiemSoat()+","+this.getHangSanxuat()+","+this.getChuSoHuu()+","+this.getNamSX()+","+this.getCongSuat();
     }
 }
