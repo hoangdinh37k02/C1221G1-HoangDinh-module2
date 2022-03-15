@@ -1,53 +1,54 @@
 package case_study.models;
 
 public class Contract {
-    private String soHD, maBooking, soTienCoc, soTienThanhToan, maKH;
+    private String contractNumber, bookingID, customerID;
+    private long deposit, pay;
 
-    public Contract(String soHD, String maBooking, String soTienCoc, String soTienThanhToan, String maKH) {
-        this.soHD = soHD;
-        this.maBooking = maBooking;
-        this.soTienCoc = soTienCoc;
-        this.soTienThanhToan = soTienThanhToan;
-        this.maKH = maKH;
+    public Contract(String contractNumber, String bookingID, String customerID, long deposit, long pay) {
+        this.contractNumber = contractNumber;
+        this.bookingID = bookingID;
+        this.customerID = customerID;
+        this.deposit = deposit;
+        this.pay = pay;
     }
 
-    public String getSoHD() {
-        return soHD;
+    public String getContractNumber() {
+        return contractNumber;
     }
 
-    public void setSoHD(String soHD) {
-        this.soHD = soHD;
+    public void setContractNumber(String contractNumber) {
+        this.contractNumber = contractNumber;
     }
 
-    public String getMaBooking() {
-        return maBooking;
+    public String getBookingID() {
+        return bookingID;
     }
 
-    public void setMaBooking(String maBooking) {
-        this.maBooking = maBooking;
+    public void setBookingID(String bookingID) {
+        this.bookingID = bookingID;
     }
 
-    public String getSoTienCoc() {
-        return soTienCoc;
+    public String getCustomerID() {
+        return customerID;
     }
 
-    public void setSoTienCoc(String soTienCoc) {
-        this.soTienCoc = soTienCoc;
+    public void setCustomerID(String customerID) {
+        this.customerID = customerID;
     }
 
-    public String getSoTienThanhToan() {
-        return soTienThanhToan;
+    public long getDeposit() {
+        return deposit;
     }
 
-    public void setSoTienThanhToan(String soTienThanhToan) {
-        this.soTienThanhToan = soTienThanhToan;
+    public void setDeposit(long deposit) {
+        this.deposit = deposit;
     }
 
-    public String getMaKH() {
-        return maKH;
+    public long getPay() {
+        return pay;
     }
 
-    public void setMaKH(String maKH) {
-        this.maKH = maKH;
+    public void setPay(long pay) {
+        this.pay = pay;
     }
 }

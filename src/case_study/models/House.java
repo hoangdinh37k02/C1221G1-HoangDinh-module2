@@ -1,28 +1,28 @@
 package case_study.models;
 
 public class House extends Facility{
-    private String tieuChuanPhong;
-    private int soTang;
+    private String roomStandard;
+    private int floor;
 
-    public House(String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoi, String kieuThue, String tieuChuanPhong, int soTang) {
-        super(tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoi, kieuThue);
-        this.tieuChuanPhong = tieuChuanPhong;
-        this.soTang = soTang;
+    public House(String serviceName, double useArea, double cost, int numberOfPeople, String rentalType, String roomStandard, int floor) {
+        super(serviceName, useArea, cost, numberOfPeople, rentalType);
+        this.roomStandard = roomStandard;
+        this.floor = floor;
     }
 
-    public String getTieuChuanPhong() {
-        return tieuChuanPhong;
+    public String getRoomStandard() {
+        return roomStandard;
     }
 
-    public void setTieuChuanPhong(String tieuChuanPhong) {
-        this.tieuChuanPhong = tieuChuanPhong;
+    public void setRoomStandard(String roomStandard) {
+        this.roomStandard = roomStandard;
     }
 
-    public int getSoTang() {
-        return soTang;
+    public int getFloor() {
+        return floor;
     }
 
-    public void setSoTang(int soTang) {
-        this.soTang = soTang;
+    public void setFloor(int floor) {
+        this.floor = floor;
     }
 }

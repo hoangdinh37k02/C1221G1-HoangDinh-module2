@@ -1,18 +1,18 @@
 package case_study.models;
 
 public class Room extends Facility{
-    private String dichVuThem;
+    private String extraService;
 
-    public Room(String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoi, String kieuThue, String dichVuThem) {
-        super(tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoi, kieuThue);
-        this.dichVuThem = dichVuThem;
+    public Room(String serviceName, double useArea, double cost, int numberOfPeople, String rentalType, String extraService) {
+        super(serviceName, useArea, cost, numberOfPeople, rentalType);
+        this.extraService = extraService;
     }
 
-    public String getDichVuThem() {
-        return dichVuThem;
+    public String getExtraService() {
+        return extraService;
     }
 
-    public void setDichVuThem(String dichVuThem) {
-        this.dichVuThem = dichVuThem;
+    public void setExtraService(String extraService) {
+        this.extraService = extraService;
     }
 }

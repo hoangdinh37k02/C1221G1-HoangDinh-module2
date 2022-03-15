@@ -1,36 +1,36 @@
 package case_study.models;
 
-public class Customer extends Person{
-    private String maKH, loaiKH, diaChi;
+public class Customer extends Person {
+    private String customerID, customerType, address;
 
-    public Customer(String hoTen, String ngaySinh, String gioiTinh, String soCMND, String dienThoai, String email, String maKH, String loaiKH, String diaChi) {
-        super(hoTen, ngaySinh, gioiTinh, soCMND, dienThoai, email);
-        this.maKH = maKH;
-        this.loaiKH = loaiKH;
-        this.diaChi = diaChi;
+    public Customer(String name, String birthDay, String gender, String IDCard, String phone, String email, String customerID, String customerType, String address) {
+        super(name, birthDay, gender, IDCard, phone, email);
+        this.customerID = customerID;
+        this.customerType = customerType;
+        this.address = address;
     }
 
-    public String getMaKH() {
-        return maKH;
+    public String getCustomerID() {
+        return customerID;
     }
 
-    public void setMaKH(String maKH) {
-        this.maKH = maKH;
+    public void setCustomerID(String customerID) {
+        this.customerID = customerID;
     }
 
-    public String getLoaiKH() {
-        return loaiKH;
+    public String getCustomerType() {
+        return customerType;
     }
 
-    public void setLoaiKH(String loaiKH) {
-        this.loaiKH = loaiKH;
+    public void setCustomerType(String customerType) {
+        this.customerType = customerType;
     }
 
-    public String getDiaChi() {
-        return diaChi;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

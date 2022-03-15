@@ -1,57 +1,57 @@
 package case_study.models;
 
 public abstract class Person {
-    private String hoTen, ngaySinh, gioiTinh, SoCMND, dienThoai, email;
+    private String name, birthDay, gender, IDCard, phone, email;
 
     public Person(){}
 
-    public Person(String hoTen, String ngaySinh, String gioiTinh, String soCMND, String dienThoai, String email) {
-        this.hoTen = hoTen;
-        this.ngaySinh = ngaySinh;
-        this.gioiTinh = gioiTinh;
-        SoCMND = soCMND;
-        this.dienThoai = dienThoai;
+    public Person(String name, String birthDay, String gender, String IDCard, String phone, String email) {
+        this.name = name;
+        this.birthDay = birthDay;
+        this.gender = gender;
+        this.IDCard = IDCard;
+        this.phone = phone;
         this.email = email;
     }
 
-    public String getHoTen() {
-        return hoTen;
+    public String getName() {
+        return name;
     }
 
-    public void setHoTen(String hoTen) {
-        this.hoTen = hoTen;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNgaySinh() {
-        return ngaySinh;
+    public String getBirthDay() {
+        return birthDay;
     }
 
-    public void setNgaySinh(String ngaySinh) {
-        this.ngaySinh = ngaySinh;
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
     }
 
-    public String getGioiTinh() {
-        return gioiTinh;
+    public String getGender() {
+        return gender;
     }
 
-    public void setGioiTinh(String gioiTinh) {
-        this.gioiTinh = gioiTinh;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public String getSoCMND() {
-        return SoCMND;
+    public String getIDCard() {
+        return IDCard;
     }
 
-    public void setSoCMND(String soCMND) {
-        SoCMND = soCMND;
+    public void setIDCard(String IDCard) {
+        this.IDCard = IDCard;
     }
 
-    public String getDienThoai() {
-        return dienThoai;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setDienThoai(String dienThoai) {
-        this.dienThoai = dienThoai;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getEmail() {
@@ -65,11 +65,11 @@ public abstract class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "hoTen='" + hoTen + '\'' +
-                ", ngaySinh='" + ngaySinh + '\'' +
-                ", gioiTinh='" + gioiTinh + '\'' +
-                ", SoCMND='" + SoCMND + '\'' +
-                ", dienThoai='" + dienThoai + '\'' +
+                "hoTen='" + name + '\'' +
+                ", ngaySinh='" + birthDay + '\'' +
+                ", gioiTinh='" + gender + '\'' +
+                ", SoCMND='" + IDCard + '\'' +
+                ", dienThoai='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

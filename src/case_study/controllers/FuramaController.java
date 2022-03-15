@@ -14,7 +14,7 @@ public class FuramaController {
                     "4.\tBooking Managerment\n" +
                     "5.\tPromotion Management\n" +
                     "6.\tExit\n" +
-                    "Vui lòng lựa chọn");
+                    "Please choice");
             choice = Integer.parseInt(scanner.nextLine());
             switch (choice){
                 case 1:
@@ -24,7 +24,7 @@ public class FuramaController {
                                 "2\tAdd new employee\n" +
                                 "3\tEdit employee\n" +
                                 "4\tReturn main menu\n" +
-                                "Vui lòng lựa chọn");
+                                "Please choice");
                         choice1=Integer.parseInt(scanner.nextLine());
                         switch (choice1){
                             case 1:
@@ -35,7 +35,7 @@ public class FuramaController {
                                 break;
                             default:
                                 System.out.println("Lựa chọn không hợp lệ\n" +
-                                        "Vui lòng chọn lại");
+                                        "Please choice again");
                                 break;
                         }
                     } while (choice1!=4);
@@ -47,7 +47,7 @@ public class FuramaController {
                                 "2\tAdd new customer\n" +
                                 "3\tEdit customer\n" +
                                 "4\tReturn main menu\n" +
-                                "Vui lòng lựa chọn");
+                                "Please choice");
                         choice2=Integer.parseInt(scanner.nextLine());
                         switch (choice2){
                             case 1:
@@ -58,7 +58,7 @@ public class FuramaController {
                                 break;
                             default:
                                 System.out.println("Lựa chọn không hợp lệ\n" +
-                                        "Vui lòng chọn lại");
+                                        "Please choice");
                                 break;
                         }
                     } while (choice2!=4);
@@ -70,7 +70,7 @@ public class FuramaController {
                                 "2\tAdd new facility\n" +
                                 "3\tDisplay list facility maintenance\n" +
                                 "4\tReturn main menu\n" +
-                                "Vui lòng lựa chọn");
+                                "Please choice");
                         choice3=Integer.parseInt(scanner.nextLine());
                         switch (choice3){
                             case 1:
@@ -80,8 +80,8 @@ public class FuramaController {
                             case 3:
                                 break;
                             default:
-                                System.out.println("Lựa chọn không hợp lệ\n" +
-                                        "Vui lòng chọn lại");
+                                System.out.println("Invalid\n" +
+                                        "Please choice again");
                                 break;
                         }
                     } while (choice3!=4);
@@ -95,7 +95,7 @@ public class FuramaController {
                                 "4.\tDisplay list contracts\n" +
                                 "5.\tEdit contracts\n" +
                                 "6.\tReturn main menu\n" +
-                                "Vui lòng lựa chọn");
+                                "Please choice");
                         choice4=Integer.parseInt(scanner.nextLine());
                         switch (choice4){
                             case 1:
@@ -109,8 +109,8 @@ public class FuramaController {
                             case 5:
                                 break;
                             default:
-                                System.out.println("Lựa chọn không hợp lệ\n" +
-                                        "Vui lòng chọn lại");
+                                System.out.println("Invalid\n" +
+                                        "Please choice again");
                                 break;
                         }
                     } while (choice4!=6);
@@ -121,7 +121,7 @@ public class FuramaController {
                         System.out.println("1.\tDisplay list customers use service\n" +
                                 "2.\tDisplay list customers get voucher\n" +
                                 "3\tReturn main menu\n" +
-                                "Vui lòng lựa chọn");
+                                "Please choice");
                         choice5=Integer.parseInt(scanner.nextLine());
                         switch (choice5){
                             case 1:
@@ -129,8 +129,8 @@ public class FuramaController {
                             case 2:
                                 break;
                             default:
-                                System.out.println("Lựa chọn không hợp lệ\n" +
-                                        "Vui lòng chọn lại");
+                                System.out.println("Invalid\n" +
+                                        "Please choice again");
                                 break;
                         }
                     } while (choice5!=3);
@@ -138,8 +138,8 @@ public class FuramaController {
                 case 6:
                     System.exit(6);
                 default:
-                    System.out.println("Lựa chọn không hợp lệ\n" +
-                            "Vui lòng chọn lại");
+                    System.out.println("Invalid\n" +
+                            "Please choice again");
                     break;
             }
         } while (choice!=6);

@@ -1,71 +1,71 @@
 package case_study.models;
 
 public abstract class Facility {
-    private String tenDichVu;
-    private double dienTichSuDung, chiPhiThue;
-    private int soLuongNguoi;
-    private String kieuThue;
+    private String serviceName;
+    private double useArea, cost;
+    private int numberOfPeople;
+    private String rentalType;
 
     public Facility(){
 
     }
 
-    public Facility(String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoi, String kieuThue) {
-        this.tenDichVu = tenDichVu;
-        this.dienTichSuDung = dienTichSuDung;
-        this.chiPhiThue = chiPhiThue;
-        this.soLuongNguoi = soLuongNguoi;
-        this.kieuThue = kieuThue;
+    public Facility(String serviceName, double useArea, double cost, int numberOfPeople, String rentalType) {
+        this.serviceName = serviceName;
+        this.useArea = useArea;
+        this.cost = cost;
+        this.numberOfPeople = numberOfPeople;
+        this.rentalType = rentalType;
     }
 
-    public String getTenDichVu() {
-        return tenDichVu;
+    public String getServiceName() {
+        return serviceName;
     }
 
-    public void setTenDichVu(String tenDichVu) {
-        this.tenDichVu = tenDichVu;
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 
-    public double getDienTichSuDung() {
-        return dienTichSuDung;
+    public double getUseArea() {
+        return useArea;
     }
 
-    public void setDienTichSuDung(double dienTichSuDung) {
-        this.dienTichSuDung = dienTichSuDung;
+    public void setUseArea(double useArea) {
+        this.useArea = useArea;
     }
 
-    public double getChiPhiThue() {
-        return chiPhiThue;
+    public double getCost() {
+        return cost;
     }
 
-    public void setChiPhiThue(double chiPhiThue) {
-        this.chiPhiThue = chiPhiThue;
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 
-    public int getSoLuongNguoi() {
-        return soLuongNguoi;
+    public int getNumberOfPeople() {
+        return numberOfPeople;
     }
 
-    public void setSoLuongNguoi(int soLuongNguoi) {
-        this.soLuongNguoi = soLuongNguoi;
+    public void setNumberOfPeople(int numberOfPeople) {
+        this.numberOfPeople = numberOfPeople;
     }
 
-    public String getKieuThue() {
-        return kieuThue;
+    public String getRentalType() {
+        return rentalType;
     }
 
-    public void setKieuThue(String kieuThue) {
-        this.kieuThue = kieuThue;
+    public void setRentalType(String rentalType) {
+        this.rentalType = rentalType;
     }
 
     @Override
     public String toString() {
         return "Facility{" +
-                "tenDichVu='" + tenDichVu + '\'' +
-                ", dienTichSuDung=" + dienTichSuDung +
-                ", chiPhiThue=" + chiPhiThue +
-                ", soLuongNguoi=" + soLuongNguoi +
-                ", kieuThue='" + kieuThue + '\'' +
+                "tenDichVu='" + serviceName + '\'' +
+                ", dienTichSuDung=" + useArea +
+                ", chiPhiThue=" + cost +
+                ", soLuongNguoi=" + numberOfPeople +
+                ", kieuThue='" + rentalType + '\'' +
                 '}';
     }
 }

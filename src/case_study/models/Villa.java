@@ -1,38 +1,38 @@
 package case_study.models;
 
 public class Villa extends Facility{
-    private String tieuChuanPhong;
-    private double dienTichHoBoi;
-    private int soTang;
+    private String roomStandard;
+    private double poolArea;
+    private int floor;
 
-    public Villa(String tenDichVu, double dienTichSuDung, double chiPhiThue, int soLuongNguoi, String kieuThue, String tieuChuanPhong, double dienTichHoBoi, int soTang) {
-        super(tenDichVu, dienTichSuDung, chiPhiThue, soLuongNguoi, kieuThue);
-        this.tieuChuanPhong = tieuChuanPhong;
-        this.dienTichHoBoi = dienTichHoBoi;
-        this.soTang = soTang;
+    public Villa(String serviceName, double useArea, double cost, int numberOfPeople, String rentalType, String roomStandard, double poolArea, int floor) {
+        super(serviceName, useArea, cost, numberOfPeople, rentalType);
+        this.roomStandard = roomStandard;
+        this.poolArea = poolArea;
+        this.floor = floor;
     }
 
-    public String getTieuChuanPhong() {
-        return tieuChuanPhong;
+    public String getRoomStandard() {
+        return roomStandard;
     }
 
-    public void setTieuChuanPhong(String tieuChuanPhong) {
-        this.tieuChuanPhong = tieuChuanPhong;
+    public void setRoomStandard(String roomStandard) {
+        this.roomStandard = roomStandard;
     }
 
-    public double getDienTichHoBoi() {
-        return dienTichHoBoi;
+    public double getPoolArea() {
+        return poolArea;
     }
 
-    public void setDienTichHoBoi(double dienTichHoBoi) {
-        this.dienTichHoBoi = dienTichHoBoi;
+    public void setPoolArea(double poolArea) {
+        this.poolArea = poolArea;
     }
 
-    public int getSoTang() {
-        return soTang;
+    public int getFloor() {
+        return floor;
     }
 
-    public void setSoTang(int soTang) {
-        this.soTang = soTang;
+    public void setFloor(int floor) {
+        this.floor = floor;
     }
 }

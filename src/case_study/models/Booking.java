@@ -1,62 +1,62 @@
 package case_study.models;
 
 public class Booking {
-    private String maBooking, ngayBatDau, ngayKetThuc, maKH, tenDV, loaiDV;
+    private String bookingID, startDay, endDay, customerID, serviceName, serviceType;
 
-    public Booking(String maBooking, String ngayBatDau, String ngayKetThuc, String maKH, String tenDV, String loaiDV) {
-        this.maBooking = maBooking;
-        this.ngayBatDau = ngayBatDau;
-        this.ngayKetThuc = ngayKetThuc;
-        this.maKH = maKH;
-        this.tenDV = tenDV;
-        this.loaiDV = loaiDV;
+    public Booking(String bookingID, String startDay, String endDay, String customerID, String serviceName, String serviceType) {
+        this.bookingID = bookingID;
+        this.startDay = startDay;
+        this.endDay = endDay;
+        this.customerID = customerID;
+        this.serviceName = serviceName;
+        this.serviceType = serviceType;
     }
 
-    public String getMaBooking() {
-        return maBooking;
+    public String getBookingID() {
+        return bookingID;
     }
 
-    public void setMaBooking(String maBooking) {
-        this.maBooking = maBooking;
+    public void setBookingID(String bookingID) {
+        this.bookingID = bookingID;
     }
 
-    public String getNgayBatDau() {
-        return ngayBatDau;
+    public String getStartDay() {
+        return startDay;
     }
 
-    public void setNgayBatDau(String ngayBatDau) {
-        this.ngayBatDau = ngayBatDau;
+    public void setStartDay(String startDay) {
+        this.startDay = startDay;
     }
 
-    public String getNgayKetThuc() {
-        return ngayKetThuc;
+    public String getEndDay() {
+        return endDay;
     }
 
-    public void setNgayKetThuc(String ngayKetThuc) {
-        this.ngayKetThuc = ngayKetThuc;
+    public void setEndDay(String endDay) {
+        this.endDay = endDay;
     }
 
-    public String getMaKH() {
-        return maKH;
+    public String getCustomerID() {
+        return customerID;
     }
 
-    public void setMaKH(String maKH) {
-        this.maKH = maKH;
+    public void setCustomerID(String customerID) {
+        this.customerID = customerID;
     }
 
-    public String getTenDV() {
-        return tenDV;
+    public String getServiceName() {
+        return serviceName;
     }
 
-    public void setTenDV(String tenDV) {
-        this.tenDV = tenDV;
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 
-    public String getLoaiDV() {
-        return loaiDV;
+    public String getServiceType() {
+        return serviceType;
     }
 
-    public void setLoaiDV(String loaiDV) {
-        this.loaiDV = loaiDV;
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
     }
 }

@@ -1,45 +1,45 @@
 package case_study.models;
 
 public class Employee extends Person{
-    private String maNV, trinhDo, viTri, luong;
+    private String EmployeeID, grade, position, salary;
 
-    public Employee(String hoTen, String ngaySinh, String gioiTinh, String soCMND, String dienThoai, String email, String maNV, String trinhDo, String viTri, String luong) {
-        super(hoTen, ngaySinh, gioiTinh, soCMND, dienThoai, email);
-        this.maNV = maNV;
-        this.trinhDo = trinhDo;
-        this.viTri = viTri;
-        this.luong = luong;
+    public Employee(String name, String birthDay, String gender, String IDCard, String phone, String email, String employeeID, String grade, String position, String salary) {
+        super(name, birthDay, gender, IDCard, phone, email);
+        EmployeeID = employeeID;
+        this.grade = grade;
+        this.position = position;
+        this.salary = salary;
     }
 
-    public String getMaNV() {
-        return maNV;
+    public String getEmployeeID() {
+        return EmployeeID;
     }
 
-    public void setMaNV(String maNV) {
-        this.maNV = maNV;
+    public void setEmployeeID(String employeeID) {
+        EmployeeID = employeeID;
     }
 
-    public String getTrinhDo() {
-        return trinhDo;
+    public String getGrade() {
+        return grade;
     }
 
-    public void setTrinhDo(String trinhDo) {
-        this.trinhDo = trinhDo;
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
-    public String getViTri() {
-        return viTri;
+    public String getPosition() {
+        return position;
     }
 
-    public void setViTri(String viTri) {
-        this.viTri = viTri;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
-    public String getLuong() {
-        return luong;
+    public String getSalary() {
+        return salary;
     }
 
-    public void setLuong(String luong) {
-        this.luong = luong;
+    public void setSalary(String salary) {
+        this.salary = salary;
     }
 }
