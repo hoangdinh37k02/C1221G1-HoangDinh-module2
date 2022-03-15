@@ -1,30 +1,30 @@
 package case_study.models;
 
 public class Employee extends Person{
-    private String EmployeeID, grade, position, salary;
+    private String employeeID, degree, position, salary;
 
-    public Employee(String name, String birthDay, String gender, String IDCard, String phone, String email, String employeeID, String grade, String position, String salary) {
-        super(name, birthDay, gender, IDCard, phone, email);
-        EmployeeID = employeeID;
-        this.grade = grade;
+    public Employee(String employeeID,String name, String birthDay, String gender, String iDCard, String phone, String email,  String degree, String position, String salary) {
+        super(name, birthDay, gender, iDCard, phone, email);
+        this.employeeID = employeeID;
+        this.degree = degree;
         this.position = position;
         this.salary = salary;
     }
 
     public String getEmployeeID() {
-        return EmployeeID;
+        return employeeID;
     }
 
     public void setEmployeeID(String employeeID) {
-        EmployeeID = employeeID;
+        this.employeeID = employeeID;
     }
 
-    public String getGrade() {
-        return grade;
+    public String getDegree() {
+        return degree;
     }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
+    public void setDegree(String degree) {
+        this.degree = degree;
     }
 
     public String getPosition() {
@@ -41,5 +41,16 @@ public class Employee extends Person{
 
     public void setSalary(String salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Employee{" +
+                "employeeID='" + employeeID + '\'' + super.toString()+
+                ", degree='" + degree + '\'' +
+                ", position='" + position + '\'' +
+                ", salary='" + salary + '\'' +
+                '}';
     }
 }

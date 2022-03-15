@@ -15,4 +15,12 @@ public class Room extends Facility{
     public void setExtraService(String extraService) {
         this.extraService = extraService;
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+
+                "Room{" +
+                "extraService='" + extraService + '\'' +
+                '}';
+    }
 }

@@ -1,15 +1,15 @@
 package case_study.models;
 
 public abstract class Person {
-    private String name, birthDay, gender, IDCard, phone, email;
+    private String name, birthDay, gender, iDCard, phone, email;
 
     public Person(){}
 
-    public Person(String name, String birthDay, String gender, String IDCard, String phone, String email) {
+    public Person(String name, String birthDay, String gender, String iDCard, String phone, String email) {
         this.name = name;
         this.birthDay = birthDay;
         this.gender = gender;
-        this.IDCard = IDCard;
+        this.iDCard = iDCard;
         this.phone = phone;
         this.email = email;
     }
@@ -38,12 +38,12 @@ public abstract class Person {
         this.gender = gender;
     }
 
-    public String getIDCard() {
-        return IDCard;
+    public String getiDCard() {
+        return iDCard;
     }
 
-    public void setIDCard(String IDCard) {
-        this.IDCard = IDCard;
+    public void setiDCard(String iDCard) {
+        this.iDCard = iDCard;
     }
 
     public String getPhone() {
@@ -68,7 +68,7 @@ public abstract class Person {
                 "hoTen='" + name + '\'' +
                 ", ngaySinh='" + birthDay + '\'' +
                 ", gioiTinh='" + gender + '\'' +
-                ", SoCMND='" + IDCard + '\'' +
+                ", SoCMND='" + iDCard + '\'' +
                 ", dienThoai='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 '}';
