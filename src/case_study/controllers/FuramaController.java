@@ -14,7 +14,7 @@ public class FuramaController {
     public void displayMainMenu(){
         int choice;
         do {
-            System.out.println(" 1.\tEmployee Management\n" +
+            System.out.println("1.\tEmployee Management\n" +
                     "2.\tCustomer Management\n" +
                     "3.\tFacility Management \n" +
                     "4.\tBooking Management\n" +
@@ -87,10 +87,13 @@ public class FuramaController {
             choice2=Integer.parseInt(scanner.nextLine());
             switch (choice2){
                 case 1:
+                    customerService.display();
                     break;
                 case 2:
+                    customerService.add();
                     break;
                 case 3:
+                    customerService.edit();
                     break;
                 default:
                     System.out.println("Please choice again");

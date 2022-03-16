@@ -1,6 +1,5 @@
 package case_study.services.impl;
 
-import case_study.models.Customer;
 import case_study.models.Employee;
 import case_study.services.IEmployeeService;
 
@@ -10,7 +9,7 @@ import java.util.Scanner;
 
 public class EmployeeServiceImpl implements IEmployeeService {
     private String name, birthDay, gender, iDCard, phone, email, employeeID, degree, position, salary;
-    List<Employee> employeeList = new ArrayList<>();
+    static List<Employee> employeeList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     String[] degreeArr = {"Trung cấp","Cao đẳng","Đại học","Sau Đại học"};
     String[] positionArr={"Lễ tân","Phục vụ","Chuyên viên","Giám sát","Quản lý","Giám đốc"};
