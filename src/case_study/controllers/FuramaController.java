@@ -114,16 +114,46 @@ public class FuramaController {
             choice3=Integer.parseInt(scanner.nextLine());
             switch (choice3){
                 case 1:
+                    facilityService.display();
                     break;
                 case 2:
+                    addNewFacility();
                     break;
                 case 3:
+                    facilityService.displayMaintain();
                     break;
                 default:
                     System.out.println("Please choice again");
                     break;
             }
         } while (choice3!=4);
+    }
+
+    public void addNewFacility(){
+        FacilityServiceImpl facilityService=new FacilityServiceImpl();
+        int choice5;
+        do {
+            System.out.println("1\tAdd new Villa\n" +
+                    "2\tAdd new House\n" +
+                    "3\tAdd new Room\n" +
+                    "4\tReturn main menu\n" +
+                    "Please choice");
+            choice5=Integer.parseInt(scanner.nextLine());
+            switch (choice5){
+                case 1:
+                    facilityService.addVilla();
+                    break;
+                case 2:
+                    facilityService.addHouse();
+                    break;
+                case 3:
+                    facilityService.addRoom();
+                    break;
+                default:
+                    System.out.println("Please choice again");
+                    break;
+            }
+        } while (choice5!=4);
     }
 
     public void bookingManagement(){

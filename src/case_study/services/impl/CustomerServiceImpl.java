@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class CustomerServiceImpl implements ICustomerService {
     private String name, birthDay, gender, iDCard, phone, email, customerID, customerType, address;
-    static List<Customer> customerList = new LinkedList<>();
+    private static List<Customer> customerList = new LinkedList<>();
     Scanner scanner = new Scanner(System.in);
     String[] typeArr = {"Diamond", "Platinum", "Gold", "Silver", "Member"};
 
