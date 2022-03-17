@@ -5,6 +5,7 @@ import case_study.models.House;
 import case_study.models.Room;
 import case_study.models.Villa;
 import case_study.services.IFacilityService;
+import case_study.utils.Validate;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -13,6 +14,14 @@ import java.util.Scanner;
 public class FacilityServiceImpl implements IFacilityService {
     private static Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
     private static Scanner scanner = new Scanner(System.in);
+
+    static final String CHECK_VILLA_SERVICE_CODE = "^[S][V][V][L]\\-\\d{4}$";
+    static final String CHECK_HOUSE_SERVICE_CODE = "^[S][V][H][O]\\-\\d{4}$";
+    static final String CHECK_ROOM_SERVICE_CODE = "^[S][V][R][O]\\-\\d{4}$";
+    static final String CHECK_SERVICE_NAME = "^[A-Z][a-z]{0,}$";
+    static final String CHECK_AREA = "^([3-9][1-9])|([4-9]\\d)|([1-9]\\d{2,})$";
+    static final String CHECK_COST = "^[1-9]{1,}$";
+    static final String CHECK_NUMBER_OF_PEOPLE = "^([1-9])|([1]\\d)$";
 
 
     @Override
@@ -29,20 +38,22 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void addVilla() {
+        System.out.print("Enter service code: ");
+        String serviceCode = Validate.regexStr(scanner.nextLine(), CHECK_VILLA_SERVICE_CODE, "invalid!");
         System.out.print("Enter service name: ");
-        String serviceName= scanner.nextLine();
+        String serviceName= Validate.regexStr(scanner.nextLine(),CHECK_SERVICE_NAME,"Invalid");
         System.out.print("Enter usable area: ");
-        double useArea= Double.parseDouble(scanner.nextLine());
+        double useArea= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_AREA, "Invalid"));
         System.out.print("Enter cost: ");
-        double cost= Double.parseDouble(scanner.nextLine());
+        double cost= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_COST, "Invalid"));
         System.out.print("Enter maximum people: ");
-        int numberOfPeople= Integer.parseInt(scanner.nextLine());
+        int numberOfPeople= Integer.parseInt(Validate.regexStr(scanner.nextLine(), CHECK_NUMBER_OF_PEOPLE, "Invalid"));
 
         String[] rentalTypeArr={"Year","Month","Day","Hour"};
         boolean flag=false;
         String rentalType = null;
         do {
-            System.out.println("Choice type of rental (1: year; 2: month; 3: day; 4: hour");
+            System.out.print("Choice type of rental (1: year; 2: month; 3: day; 4: hour): ");
             switch (Integer.parseInt(scanner.nextLine())){
                 case 1:
                     rentalType = rentalTypeArr[0];
@@ -61,30 +72,31 @@ public class FacilityServiceImpl implements IFacilityService {
                     flag = true;
                     break;
             }
-        } while (false);
+        } while (flag);
         System.out.print("Enter room standard: ");
-        String roomStandard= scanner.nextLine();
+        String roomStandard= Validate.regexStr(scanner.nextLine(),CHECK_SERVICE_NAME,"Invalid");
         System.out.print("Enter pool area: ");
-        double poolArea= Double.parseDouble(scanner.nextLine());
+        double poolArea= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_AREA, "Invalid"));
         System.out.print("Enter floor: ");
-        int floor= Integer.parseInt(scanner.nextLine());
+        int floor= Integer.parseInt(Validate.regexStr(scanner.nextLine(), CHECK_COST, "Invalid"));
 
-        Villa villa = new Villa(serviceName,useArea,cost,numberOfPeople,rentalType,roomStandard,poolArea,floor);
+        Villa villa = new Villa(serviceCode,serviceName,useArea,cost,numberOfPeople,rentalType,roomStandard,poolArea,floor);
         facilityIntegerMap.put(villa,0);
         System.out.println("Addition villa successful!");
     }
 
     @Override
     public void addHouse() {
-
+        System.out.print("Enter service code: ");
+        String serviceCode= Validate.regexStr(scanner.nextLine(), CHECK_HOUSE_SERVICE_CODE, "invalid!");
         System.out.print("Enter service name: ");
-        String serviceName= scanner.nextLine();
+        String serviceName= Validate.regexStr(scanner.nextLine(),CHECK_SERVICE_NAME,"Invalid");
         System.out.print("Enter usable area: ");
-        double useArea= Double.parseDouble(scanner.nextLine());
+        double useArea= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_AREA, "Invalid"));
         System.out.print("Enter cost: ");
-        double cost= Double.parseDouble(scanner.nextLine());
+        double cost= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_COST, "Invalid"));
         System.out.print("Enter maximum people: ");
-        int numberOfPeople= Integer.parseInt(scanner.nextLine());
+        int numberOfPeople= Integer.parseInt(Validate.regexStr(scanner.nextLine(), CHECK_NUMBER_OF_PEOPLE, "Invalid"));
 
         String[] rentalTypeArr={"Year","Month","Day","Hour"};
         boolean flag=false;
@@ -109,27 +121,29 @@ public class FacilityServiceImpl implements IFacilityService {
                     flag = true;
                     break;
             }
-        } while (false);
+        } while (flag);
         System.out.print("Enter room standard: ");
         String roomStandard= scanner.nextLine();
         System.out.print("Enter floor: ");
-        int floor= Integer.parseInt(scanner.nextLine());
+        int floor= Integer.parseInt(Validate.regexStr(scanner.nextLine(), CHECK_COST, "Invalid"));
 
-        House house = new House(serviceName,useArea,cost,numberOfPeople,rentalType,roomStandard,floor);
+        House house = new House(serviceCode,serviceName,useArea,cost,numberOfPeople,rentalType,roomStandard,floor);
         facilityIntegerMap.put(house,0);
         System.out.println("Addition house successful!");
     }
 
     @Override
     public void addRoom() {
+        System.out.print("Enter service code: ");
+        String serviceCode= Validate.regexStr(scanner.nextLine(), CHECK_ROOM_SERVICE_CODE, "invalid!");
         System.out.print("Enter service name: ");
-        String serviceName= scanner.nextLine();
+        String serviceName= Validate.regexStr(scanner.nextLine(),CHECK_SERVICE_NAME,"Invalid");
         System.out.print("Enter usable area: ");
-        double useArea= Double.parseDouble(scanner.nextLine());
+        double useArea= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_AREA, "Invalid"));
         System.out.print("Enter cost: ");
-        double cost= Double.parseDouble(scanner.nextLine());
+        double cost= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_COST, "Invalid"));
         System.out.print("Enter maximum people: ");
-        int numberOfPeople= Integer.parseInt(scanner.nextLine());
+        int numberOfPeople= Integer.parseInt(Validate.regexStr(scanner.nextLine(), CHECK_NUMBER_OF_PEOPLE, "Invalid"));
 
         String[] rentalTypeArr={"Year","Month","Day","Hour"};
         boolean flag=false;
@@ -154,12 +168,12 @@ public class FacilityServiceImpl implements IFacilityService {
                     flag = true;
                     break;
             }
-        } while (false);
+        } while (flag);
         System.out.print("Enter extra service: ");
         String extraService= scanner.nextLine();
 
 
-        Room room = new Room(serviceName,useArea,cost,numberOfPeople,rentalType,extraService);
+        Room room = new Room(serviceCode,serviceName,useArea,cost,numberOfPeople,rentalType,extraService);
         facilityIntegerMap.put(room,0);
         System.out.println("Addition room successful!");
     }

@@ -2,6 +2,7 @@ package case_study.services.impl;
 
 import case_study.models.Employee;
 import case_study.services.IEmployeeService;
+import case_study.utils.Validate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
     Scanner scanner = new Scanner(System.in);
     String[] degreeArr = {"Trung cấp","Cao đẳng","Đại học","Sau Đại học"};
     String[] positionArr={"Lễ tân","Phục vụ","Chuyên viên","Giám sát","Quản lý","Giám đốc"};
+
+    static final String CHECK_AGE = "^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$";
 
     @Override
     public void add() {
@@ -37,7 +40,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         System.out.print("Enter name: ");
         name = scanner.nextLine();
         System.out.print("Enter birthday: ");
-        birthDay = scanner.nextLine();
+        birthDay = Validate.regexAge(scanner.nextLine(),CHECK_AGE);
         System.out.print("Enter gender: ");
         gender = scanner.nextLine();
         System.out.print("Enter IDCard: ");

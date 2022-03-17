@@ -142,12 +142,15 @@ public class FuramaController {
             switch (choice5){
                 case 1:
                     facilityService.addVilla();
+                    facilityManagement();
                     break;
                 case 2:
                     facilityService.addHouse();
+                    facilityManagement();
                     break;
                 case 3:
                     facilityService.addRoom();
+                    facilityManagement();
                     break;
                 default:
                     System.out.println("Please choice again");

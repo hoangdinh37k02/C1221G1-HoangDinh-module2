@@ -2,6 +2,7 @@ package case_study.services.impl;
 
 import case_study.models.Customer;
 import case_study.services.ICustomerService;
+import case_study.utils.Validate;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class CustomerServiceImpl implements ICustomerService {
     private static List<Customer> customerList = new LinkedList<>();
     Scanner scanner = new Scanner(System.in);
     String[] typeArr = {"Diamond", "Platinum", "Gold", "Silver", "Member"};
+    static final String CHECK_AGE = "^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$";
 
     @Override
     public void add() {
@@ -48,7 +50,7 @@ public class CustomerServiceImpl implements ICustomerService {
         System.out.print("Enter name: ");
         name = scanner.nextLine();
         System.out.print("Enter birthday: ");
-        birthDay = scanner.nextLine();
+        birthDay = Validate.regexAge(scanner.nextLine(),CHECK_AGE);
         System.out.print("Enter gender: ");
         gender = scanner.nextLine();
         System.out.print("Enter IDCard: ");
