@@ -53,4 +53,11 @@ public class Employee extends Person{
                 ", salary='" + salary + '\'' +
                 '}';
     }
+//    String employeeID,String name, String birthDay, String gender, String iDCard,
+//    String phone, String email,  String degree, String position, String salary
+    public String getInfoToCSV(){
+        return this.getEmployeeID()+","+this.getName()+","+this.getBirthDay()+","+this.getGender()+","+
+                this.getiDCard()+","+this.getPhone()+","+this.getEmail()+","+this.getDegree()+","+
+                this.getPosition()+","+this.getSalary();
+    }
 }

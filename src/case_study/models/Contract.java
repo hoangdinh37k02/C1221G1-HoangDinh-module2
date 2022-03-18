@@ -51,4 +51,9 @@ public class Contract {
     public void setPay(long pay) {
         this.pay = pay;
     }
+
+    public String getInfoToCSV(){
+        return this.getContractNumber()+","+this.getBookingID()+","+this.getCustomerID()+","+this.getDeposit()+","+
+                this.getPay();
+    }
 }

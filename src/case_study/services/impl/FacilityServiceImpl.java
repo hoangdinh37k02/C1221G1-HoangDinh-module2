@@ -5,7 +5,9 @@ import case_study.models.House;
 import case_study.models.Room;
 import case_study.models.Villa;
 import case_study.services.IFacilityService;
+import case_study.utils.ReadAndWriteCSV;
 import case_study.utils.Validate;
+import vehicle_validate.util.ReadAndWrite;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -13,6 +15,9 @@ import java.util.Scanner;
 
 public class FacilityServiceImpl implements IFacilityService {
     private static Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
+    private static Map<House, Integer> houseMap = new LinkedHashMap<>();
+    private static Map<Villa, Integer> villaMap = new LinkedHashMap<>();
+    private static Map<Room, Integer> roomMap = new LinkedHashMap<>();
     private static Scanner scanner = new Scanner(System.in);
 
     static final String CHECK_VILLA_SERVICE_CODE = "^[S][V][V][L]\\-\\d{4}$";
@@ -26,14 +31,51 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void display() {
-        for (Map.Entry<Facility, Integer> element: facilityIntegerMap.entrySet()){
-            System.out.println("Service"+element.getKey()+"; time of rental: "+element.getValue());
+//        for (Map.Entry<Facility, Integer> element: facilityIntegerMap.entrySet()){
+//            System.out.println("Service"+element.getKey()+"; time of rental: "+element.getValue());
+//        }
+        Map<House, Integer> houseMap = ReadAndWriteCSV.readHouse();
+        for (Map.Entry<House, Integer> element: houseMap.entrySet()) {
+            System.out.println("Service" + element.getKey() + "; time of rental: " + element.getValue());
+        }
+        Map<Villa, Integer> villaMap = ReadAndWriteCSV.readVilla();
+        for (Map.Entry<Villa, Integer> element: villaMap.entrySet()) {
+            System.out.println("Service" + element.getKey() + "; time of rental: " + element.getValue());
+        }
+        Map<Room, Integer> roomMap = ReadAndWriteCSV.readRoom();
+        for (Map.Entry<Room, Integer> element: roomMap.entrySet()) {
+            System.out.println("Service" + element.getKey() + "; time of rental: " + element.getValue());
+        }
+    }
+
+    public void displayVilla(){
+        Map<Villa, Integer> villaMap = ReadAndWriteCSV.readVilla();
+        for (Map.Entry<Villa, Integer> element: villaMap.entrySet()) {
+            System.out.println("Service" + element.getKey() + "; time of rental: " + element.getValue());
+        }
+    }
+
+    public void displayHouse(){
+        Map<House, Integer> houseMap = ReadAndWriteCSV.readHouse();
+        for (Map.Entry<House, Integer> element: houseMap.entrySet()) {
+            System.out.println("Service" + element.getKey() + "; time of rental: " + element.getValue());
+        }
+    }
+
+    public void displayRoom(){
+        Map<Room, Integer> roomMap = ReadAndWriteCSV.readRoom();
+        for (Map.Entry<Room, Integer> element: roomMap.entrySet()) {
+            System.out.println("Service" + element.getKey() + "; time of rental: " + element.getValue());
         }
     }
 
     @Override
     public void displayMaintain() {
-
+        for (Map.Entry<Facility, Integer> element: facilityIntegerMap.entrySet()){
+            if (element.getValue()>=5){
+                System.out.println("Maintain list: "+element.getKey());
+            }
+        }
     }
 
     @Override
@@ -82,7 +124,9 @@ public class FacilityServiceImpl implements IFacilityService {
 
         Villa villa = new Villa(serviceCode,serviceName,useArea,cost,numberOfPeople,rentalType,roomStandard,poolArea,floor);
         facilityIntegerMap.put(villa,0);
+        villaMap.put(villa,0);
         System.out.println("Addition villa successful!");
+        ReadAndWriteCSV.writeVilla(villaMap,true);
     }
 
     @Override
@@ -129,7 +173,9 @@ public class FacilityServiceImpl implements IFacilityService {
 
         House house = new House(serviceCode,serviceName,useArea,cost,numberOfPeople,rentalType,roomStandard,floor);
         facilityIntegerMap.put(house,0);
+        houseMap.put(house,0);
         System.out.println("Addition house successful!");
+        ReadAndWriteCSV.writeHouse(houseMap, true);
     }
 
     @Override
@@ -175,6 +221,8 @@ public class FacilityServiceImpl implements IFacilityService {
 
         Room room = new Room(serviceCode,serviceName,useArea,cost,numberOfPeople,rentalType,extraService);
         facilityIntegerMap.put(room,0);
+        roomMap.put(room,0);
         System.out.println("Addition room successful!");
+        ReadAndWriteCSV.writeRoom(roomMap,true);
     }
 }

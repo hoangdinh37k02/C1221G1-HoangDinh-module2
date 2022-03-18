@@ -2,7 +2,9 @@ package case_study.services.impl;
 
 import case_study.models.Employee;
 import case_study.services.IEmployeeService;
+import case_study.utils.ReadAndWriteCSV;
 import case_study.utils.Validate;
+import vehicle_validate.util.ReadAndWrite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +24,16 @@ public class EmployeeServiceImpl implements IEmployeeService {
         create();
         Employee employee=new Employee(employeeID,name,birthDay,gender,iDCard,phone,email,degree,position,salary);
         employeeList.add(employee);
+        ReadAndWriteCSV.writeEmployee(employeeList,true);
     }
 
     @Override
     public void display() {
+        List<Employee> employeeList = ReadAndWriteCSV.readEmployee();
         for (int i=0; i<employeeList.size(); i++){
             System.out.println((i+1)+". "+employeeList.get(i));
         }
+
     }
 
     @Override
@@ -103,6 +108,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
     }
 
     public void update(){
+//        List<Employee> employeeList = ReadAndWriteCSV.readEmployee();
         display();
         System.out.println("Enter position employee of list you want to edit");
         int index = Integer.parseInt(scanner.nextLine());
@@ -117,5 +123,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         employeeList.get(index-1).setDegree(degree);
         employeeList.get(index-1).setPosition(position);
         employeeList.get(index-1).setSalary(salary);
+        ReadAndWriteCSV.writeEmployee(employeeList, false);
+        System.out.println("Update successful!");
     }
 }

@@ -114,7 +114,7 @@ public class FuramaController {
             choice3=Integer.parseInt(scanner.nextLine());
             switch (choice3){
                 case 1:
-                    facilityService.display();
+                    displayFacility();
                     break;
                 case 2:
                     addNewFacility();
@@ -127,6 +127,36 @@ public class FuramaController {
                     break;
             }
         } while (choice3!=4);
+    }
+
+    public void displayFacility(){
+        FacilityServiceImpl facilityService=new FacilityServiceImpl();
+        int choice6;
+        do {
+            System.out.println("1\tDisplay Villa\n" +
+                    "2\tDisplay House\n" +
+                    "3\tDisplay Room\n" +
+                    "4\tReturn main menu\n" +
+                    "Please choice");
+            choice6=Integer.parseInt(scanner.nextLine());
+            switch (choice6){
+                case 1:
+                    facilityService.displayVilla();
+                    facilityManagement();
+                    break;
+                case 2:
+                    facilityService.displayHouse();
+                    facilityManagement();
+                    break;
+                case 3:
+                    facilityService.displayRoom();
+                    facilityManagement();
+                    break;
+                default:
+                    System.out.println("Please choice again");
+                    break;
+            }
+        } while (choice6!=4);
     }
 
     public void addNewFacility(){

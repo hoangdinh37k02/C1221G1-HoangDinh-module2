@@ -43,4 +43,10 @@ public class Customer extends Person {
                 ", address='" + address + '\'' +
                 '}';
     }
+
+    public String getInfoToCSV(){
+        return this.getCustomerID()+","+this.getName()+","+this.getBirthDay()+","+this.getGender()+","+
+                this.getiDCard()+","+this.getPhone()+","+this.getEmail()+","+this.getCustomerType()+","+
+                this.getAddress();
+    }
 }

@@ -59,4 +59,9 @@ public class Booking {
     public void setServiceType(String serviceType) {
         this.serviceType = serviceType;
     }
+
+    public String getInfoToCSV(){
+        return this.getBookingID()+","+this.getStartDay()+","+this.getEndDay()+","+this.getCustomerID()+","+
+                this.getServiceName()+","+this.getServiceType();
+    }
 }

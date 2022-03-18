@@ -2,6 +2,7 @@ package case_study.services.impl;
 
 import case_study.models.Customer;
 import case_study.services.ICustomerService;
+import case_study.utils.ReadAndWriteCSV;
 import case_study.utils.Validate;
 
 import java.util.LinkedList;
@@ -20,10 +21,12 @@ public class CustomerServiceImpl implements ICustomerService {
         create();
         Customer customer = new Customer(customerID,name,birthDay,gender,iDCard,phone,email,customerType,address);
         customerList.add(customer);
+        ReadAndWriteCSV.writeCustomer(customerList,true);
     }
 
     @Override
     public void display() {
+        List<Customer> customerList = ReadAndWriteCSV.readCustomer();
         for (int i=0; i<customerList.size(); i++){
             System.out.println((i+1)+". "+customerList.get(i));
         }
@@ -31,6 +34,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public void edit() {
+        List<Customer> customerList = ReadAndWriteCSV.readCustomer();
         display();
         System.out.println("Enter position customer of list you want to edit");
         int index = Integer.parseInt(scanner.nextLine());
@@ -44,6 +48,8 @@ public class CustomerServiceImpl implements ICustomerService {
         customerList.get(index-1).setEmail(email);
         customerList.get(index-1).setCustomerType(customerType);
         customerList.get(index-1).setAddress(address);
+        ReadAndWriteCSV.writeCustomer(customerList,false);
+        System.out.println("Update successful!");
     }
 
     public void create(){
@@ -61,6 +67,7 @@ public class CustomerServiceImpl implements ICustomerService {
         phone = scanner.nextLine();
         System.out.print("Enter customerID: ");
         customerID = scanner.nextLine();
+
         int choice;
         boolean flag=false;
         do {
