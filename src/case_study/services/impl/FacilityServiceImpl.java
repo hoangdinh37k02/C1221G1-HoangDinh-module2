@@ -9,6 +9,7 @@ import case_study.utils.ReadAndWriteCSV;
 import case_study.utils.Validate;
 import vehicle_validate.util.ReadAndWrite;
 
+import java.nio.channels.IllegalChannelGroupException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -31,9 +32,6 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void display() {
-//        for (Map.Entry<Facility, Integer> element: facilityIntegerMap.entrySet()){
-//            System.out.println("Service"+element.getKey()+"; time of rental: "+element.getValue());
-//        }
         Map<House, Integer> houseMap = ReadAndWriteCSV.readHouse();
         for (Map.Entry<House, Integer> element: houseMap.entrySet()) {
             System.out.println("Service" + element.getKey() + "; time of rental: " + element.getValue());
@@ -96,7 +94,13 @@ public class FacilityServiceImpl implements IFacilityService {
         String rentalType = null;
         do {
             System.out.print("Choice type of rental (1: year; 2: month; 3: day; 4: hour): ");
-            switch (Integer.parseInt(scanner.nextLine())){
+            int choice = 0;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
+            switch (choice){
                 case 1:
                     rentalType = rentalTypeArr[0];
                     break;
@@ -147,7 +151,13 @@ public class FacilityServiceImpl implements IFacilityService {
         String rentalType = null;
         do {
             System.out.println("Choice type of rental (1: year; 2: month; 3: day; 4: hour)");
-            switch (Integer.parseInt(scanner.nextLine())){
+            int choice = 0;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
+            switch (choice){
                 case 1:
                     rentalType = rentalTypeArr[0];
                     break;
@@ -196,7 +206,13 @@ public class FacilityServiceImpl implements IFacilityService {
         String rentalType = null;
         do {
             System.out.println("Choice type of rental (1: year; 2: month; 3: day; 4: hour)");
-            switch (Integer.parseInt(scanner.nextLine())){
+            int choice = 0;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
+            switch (choice){
                 case 1:
                     rentalType = rentalTypeArr[0];
                     break;

@@ -56,7 +56,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
         phone = scanner.nextLine();
         System.out.print("Enter employeeID: ");
         employeeID = scanner.nextLine();
-        int choice1, choice2;
+        int choice1 = 0, choice2=0;
         boolean flag=false;
         do {
             System.out.println("Level of degree\n" +
@@ -65,7 +65,11 @@ public class EmployeeServiceImpl implements IEmployeeService {
                     "3. Đại học\n" +
                     "4. Sau đại học\n" +
                     "Please choice!");
-            choice1=Integer.parseInt(scanner.nextLine());
+            try {
+                choice1 = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
             switch (choice1){
                 case 1: degree=degreeArr[0]; break;
                 case 2: degree=degreeArr[1]; break;
@@ -88,7 +92,11 @@ public class EmployeeServiceImpl implements IEmployeeService {
                     "5. Quản lý\n" +
                     "6. Giám đốc\n" +
                     "Please choice!");
-            choice2=Integer.parseInt(scanner.nextLine());
+            try {
+                choice2 = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
             switch (choice2){
                 case 1: position=positionArr[0]; break;
                 case 2: position=positionArr[1]; break;
@@ -111,7 +119,13 @@ public class EmployeeServiceImpl implements IEmployeeService {
 //        List<Employee> employeeList = ReadAndWriteCSV.readEmployee();
         display();
         System.out.println("Enter position employee of list you want to edit");
-        int index = Integer.parseInt(scanner.nextLine());
+        int index=0;
+        try {
+            index = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e){
+            System.out.println("wrong format input! Please input again!");
+        }
+
         create();
         employeeList.get(index-1).setEmployeeID(employeeID);
         employeeList.get(index-1).setName(name);

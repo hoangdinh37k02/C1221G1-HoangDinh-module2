@@ -37,7 +37,12 @@ public class CustomerServiceImpl implements ICustomerService {
         List<Customer> customerList = ReadAndWriteCSV.readCustomer();
         display();
         System.out.println("Enter position customer of list you want to edit");
-        int index = Integer.parseInt(scanner.nextLine());
+        int index = 0;
+        try {
+            index = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e){
+            System.out.println("wrong format input! Please input again!");
+        }
         create();
         customerList.get(index-1).setCustomerID(customerID);
         customerList.get(index-1).setName(name);
@@ -68,7 +73,7 @@ public class CustomerServiceImpl implements ICustomerService {
         System.out.print("Enter customerID: ");
         customerID = scanner.nextLine();
 
-        int choice;
+        int choice=0;
         boolean flag=false;
         do {
             System.out.println("Type of customer\n" +
@@ -78,13 +83,18 @@ public class CustomerServiceImpl implements ICustomerService {
                     "4. Silver\n" +
                     "5. Member\n"+
                     "Please choice!");
-            choice=Integer.parseInt(scanner.nextLine());
+            try {
+                choice=Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
+
             switch (choice){
-                case 1: customerType=typeArr[0]; break;
-                case 2: customerType=typeArr[1]; break;
-                case 3: customerType=typeArr[2]; break;
-                case 4: customerType=typeArr[3]; break;
-                case 5: customerType=typeArr[4]; break;
+                case 1: customerType=typeArr[0]; flag = false; break;
+                case 2: customerType=typeArr[1]; flag = false; break;
+                case 3: customerType=typeArr[2]; flag = false; break;
+                case 4: customerType=typeArr[3]; flag = false; break;
+                case 5: customerType=typeArr[4]; flag = false; break;
                 default:
                     System.out.println("Invalid\n" +
                             "choice again");

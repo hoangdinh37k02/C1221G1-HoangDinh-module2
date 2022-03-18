@@ -12,7 +12,7 @@ public class FuramaController {
     Scanner scanner = new Scanner(System.in);
 
     public void displayMainMenu(){
-        int choice;
+        int choice = 0;
         do {
             System.out.println("1.\tEmployee Management\n" +
                     "2.\tCustomer Management\n" +
@@ -21,7 +21,11 @@ public class FuramaController {
                     "5.\tPromotion Management\n" +
                     "6.\tExit\n" +
                     "Please choice");
-            choice = Integer.parseInt(scanner.nextLine());
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
             switch (choice){
                 case 1:
                     employeeManagement();
@@ -50,14 +54,18 @@ public class FuramaController {
 
     public void employeeManagement(){
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
-        int choice1;
+        int choice1=0;
         do {
             System.out.println("1\tDisplay list employees\n" +
                     "2\tAdd new employee\n" +
                     "3\tEdit employee\n" +
                     "4\tReturn main menu\n" +
                     "Please choice");
-            choice1=Integer.parseInt(scanner.nextLine());
+            try {
+                choice1 = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
             switch (choice1){
                 case 1:
                     employeeService.display();
@@ -77,14 +85,18 @@ public class FuramaController {
 
     public void customerManager(){
         CustomerServiceImpl customerService = new CustomerServiceImpl();
-        int choice2;
+        int choice2=0;
         do {
             System.out.println("1\tDisplay list customers\n" +
                     "2\tAdd new customer\n" +
                     "3\tEdit customer\n" +
                     "4\tReturn main menu\n" +
                     "Please choice");
-            choice2=Integer.parseInt(scanner.nextLine());
+            try {
+                choice2 = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
             switch (choice2){
                 case 1:
                     customerService.display();
@@ -104,14 +116,18 @@ public class FuramaController {
 
     public void facilityManagement(){
         FacilityServiceImpl facilityService=new FacilityServiceImpl();
-        int choice3;
+        int choice3=0;
         do {
             System.out.println("1\tDisplay list facility\n" +
                     "2\tAdd new facility\n" +
                     "3\tDisplay list facility maintenance\n" +
                     "4\tReturn main menu\n" +
                     "Please choice");
-            choice3=Integer.parseInt(scanner.nextLine());
+            try {
+                choice3 = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
             switch (choice3){
                 case 1:
                     displayFacility();
@@ -131,14 +147,18 @@ public class FuramaController {
 
     public void displayFacility(){
         FacilityServiceImpl facilityService=new FacilityServiceImpl();
-        int choice6;
+        int choice6=0;
         do {
             System.out.println("1\tDisplay Villa\n" +
                     "2\tDisplay House\n" +
                     "3\tDisplay Room\n" +
                     "4\tReturn main menu\n" +
                     "Please choice");
-            choice6=Integer.parseInt(scanner.nextLine());
+            try {
+                choice6 = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
             switch (choice6){
                 case 1:
                     facilityService.displayVilla();
@@ -161,14 +181,18 @@ public class FuramaController {
 
     public void addNewFacility(){
         FacilityServiceImpl facilityService=new FacilityServiceImpl();
-        int choice5;
+        int choice5=0;
         do {
             System.out.println("1\tAdd new Villa\n" +
                     "2\tAdd new House\n" +
                     "3\tAdd new Room\n" +
                     "4\tReturn main menu\n" +
                     "Please choice");
-            choice5=Integer.parseInt(scanner.nextLine());
+            try {
+                choice5 = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
             switch (choice5){
                 case 1:
                     facilityService.addVilla();
@@ -191,7 +215,7 @@ public class FuramaController {
 
     public void bookingManagement(){
         BookingServiceImpl bookingService = new BookingServiceImpl();
-        int choice4;
+        int choice4=0;
         do {
             System.out.println("1.\tAdd new booking\n" +
                     "2.\tDisplay list booking\n" +
@@ -200,7 +224,11 @@ public class FuramaController {
                     "5.\tEdit contracts\n" +
                     "6.\tReturn main menu\n" +
                     "Please choice");
-            choice4=Integer.parseInt(scanner.nextLine());
+            try {
+                choice4 = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
             switch (choice4){
                 case 1:
                     break;
@@ -220,13 +248,17 @@ public class FuramaController {
     }
 
     public void promotionManagement(){
-        int choice5;
+        int choice5=0;
         do {
             System.out.println("1.\tDisplay list customers use service\n" +
                     "2.\tDisplay list customers get voucher\n" +
                     "3\tReturn main menu\n" +
                     "Please choice");
-            choice5=Integer.parseInt(scanner.nextLine());
+            try {
+                choice5 = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
             switch (choice5){
                 case 1:
                     break;
