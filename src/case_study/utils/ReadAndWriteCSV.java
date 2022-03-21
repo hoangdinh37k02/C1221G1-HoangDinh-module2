@@ -258,9 +258,6 @@ public class ReadAndWriteCSV {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return roomMap;
     }
-
-    
 }
