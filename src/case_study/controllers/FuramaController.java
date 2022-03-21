@@ -1,5 +1,6 @@
 package case_study.controllers;
 
+import case_study.models.Booking;
 import case_study.models.Employee;
 import case_study.services.impl.BookingServiceImpl;
 import case_study.services.impl.CustomerServiceImpl;
@@ -131,15 +132,19 @@ public class FuramaController {
             switch (choice3){
                 case 1:
                     displayFacility();
+                    displayMainMenu();
                     break;
                 case 2:
                     addNewFacility();
+                    displayMainMenu();
                     break;
                 case 3:
                     facilityService.displayMaintain();
+                    displayMainMenu();
                     break;
                 default:
                     System.out.println("Please choice again");
+                    displayMainMenu();
                     break;
             }
         } while (choice3!=4);
@@ -174,6 +179,7 @@ public class FuramaController {
                     break;
                 default:
                     System.out.println("Please choice again");
+                    displayMainMenu();
                     break;
             }
         } while (choice6!=4);
@@ -219,7 +225,7 @@ public class FuramaController {
         do {
             System.out.println("1.\tAdd new booking\n" +
                     "2.\tDisplay list booking\n" +
-                    "3.\tCreate new constracts\n" +
+                    "3.\tCreate new contracts\n" +
                     "4.\tDisplay list contracts\n" +
                     "5.\tEdit contracts\n" +
                     "6.\tReturn main menu\n" +
@@ -231,8 +237,10 @@ public class FuramaController {
             }
             switch (choice4){
                 case 1:
+                    addNewBooking();
                     break;
                 case 2:
+                    displayBooking();
                     break;
                 case 3:
                     break;
@@ -245,6 +253,74 @@ public class FuramaController {
                     break;
             }
         } while (choice4!=6);
+    }
+
+    public void addNewBooking(){
+        BookingServiceImpl bookingService=new BookingServiceImpl();
+        int choice7=0;
+        do {
+            System.out.println("1\tAdd villa booking\n" +
+                    "2\tAdd house booking\n" +
+                    "3\tAdd room booking\n" +
+                    "4\tReturn main menu\n" +
+                    "Please choice");
+            try {
+                choice7 = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
+            switch (choice7){
+                case 1:
+                    bookingService.addBookingVilla();
+                    bookingManagement();
+                    break;
+                case 2:
+                    bookingService.addBookingHouse();
+                    bookingManagement();
+                    break;
+                case 3:
+                    bookingService.addBookingRoom();
+                    bookingManagement();
+                    break;
+                default:
+                    System.out.println("Please choice again");
+                    break;
+            }
+        } while (choice7!=4);
+    }
+
+    public void displayBooking(){
+        BookingServiceImpl bookingService=new BookingServiceImpl();
+        int choice8=0;
+        do {
+            System.out.println("1\tDisplay villa booking\n" +
+                    "2\tDisplay house booking\n" +
+                    "3\tDisplay room booking\n" +
+                    "4\tReturn main menu\n" +
+                    "Please choice");
+            try {
+                choice8 = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e){
+                System.out.println("wrong format input! Please input again!");
+            }
+            switch (choice8){
+                case 1:
+                    bookingService.displayVilla();
+                    bookingManagement();
+                    break;
+                case 2:
+                    bookingService.displayHouse();
+                    bookingManagement();
+                    break;
+                case 3:
+                    bookingService.displayRoom();
+                    bookingManagement();
+                    break;
+                default:
+                    System.out.println("Please choice again");
+                    break;
+            }
+        } while (choice8!=4);
     }
 
     public void promotionManagement(){

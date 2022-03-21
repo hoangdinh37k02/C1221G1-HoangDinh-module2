@@ -33,60 +33,97 @@ public class FacilityServiceImpl implements IFacilityService {
     @Override
     public void display() {
         Map<House, Integer> houseMap = ReadAndWriteCSV.readHouse();
+        System.out.println("==========List House Service==========");
         for (Map.Entry<House, Integer> element: houseMap.entrySet()) {
-            System.out.println("Service" + element.getKey() + "; time of rental: " + element.getValue());
+            System.out.println(
+                    "Service" + element.getKey() + "; time of rental: " + element.getValue());
         }
         Map<Villa, Integer> villaMap = ReadAndWriteCSV.readVilla();
+        System.out.println("==========List Villa Service==========");
         for (Map.Entry<Villa, Integer> element: villaMap.entrySet()) {
-            System.out.println("Service" + element.getKey() + "; time of rental: " + element.getValue());
+            System.out.println(
+                    "Service" + element.getKey() + "; time of rental: " + element.getValue());
         }
         Map<Room, Integer> roomMap = ReadAndWriteCSV.readRoom();
+        System.out.println("==========List Room Service==========");
         for (Map.Entry<Room, Integer> element: roomMap.entrySet()) {
-            System.out.println("Service" + element.getKey() + "; time of rental: " + element.getValue());
+            System.out.println(
+                    "Service" + element.getKey() + "; time of rental: " + element.getValue());
         }
     }
 
     public void displayVilla(){
         Map<Villa, Integer> villaMap = ReadAndWriteCSV.readVilla();
+        System.out.println("==========List Villa Service==========");
         for (Map.Entry<Villa, Integer> element: villaMap.entrySet()) {
-            System.out.println("Service" + element.getKey() + "; time of rental: " + element.getValue());
+            System.out.println(
+                    "Service" + element.getKey() + "; time of rental: " + element.getValue());
         }
     }
 
     public void displayHouse(){
         Map<House, Integer> houseMap = ReadAndWriteCSV.readHouse();
+        System.out.println("==========List House Service==========");
         for (Map.Entry<House, Integer> element: houseMap.entrySet()) {
-            System.out.println("Service" + element.getKey() + "; time of rental: " + element.getValue());
+            System.out.println(
+                    "Service" + element.getKey() + "; time of rental: " + element.getValue());
         }
     }
 
     public void displayRoom(){
         Map<Room, Integer> roomMap = ReadAndWriteCSV.readRoom();
+        System.out.println("==========List Room Service==========");
         for (Map.Entry<Room, Integer> element: roomMap.entrySet()) {
-            System.out.println("Service" + element.getKey() + "; time of rental: " + element.getValue());
+            System.out.println(
+                    "Service" + element.getKey() + "; time of rental: " + element.getValue());
         }
     }
 
     @Override
     public void displayMaintain() {
-        for (Map.Entry<Facility, Integer> element: facilityIntegerMap.entrySet()){
+//        for (Map.Entry<Facility, Integer> element: facilityIntegerMap.entrySet()){
+//            if (element.getValue()>=5){
+//                System.out.println("==========List Maintenance==========\n" +
+//                        "Maintain list: "+element.getKey());
+//            }
+//        }
+        Map<House, Integer> houseMap = ReadAndWriteCSV.readHouse();
+        System.out.println("==========List House Service Maintenance==========");
+        for (Map.Entry<House, Integer> element: houseMap.entrySet()) {
             if (element.getValue()>=5){
                 System.out.println("Maintain list: "+element.getKey());
+                System.out.println("");
+            }
+        }
+        Map<Villa, Integer> villaMap = ReadAndWriteCSV.readVilla();
+        System.out.println("==========List Villa Service Maintenance==========");
+        for (Map.Entry<Villa, Integer> element: villaMap.entrySet()) {
+            if (element.getValue()>=5){
+                System.out.println("Maintain list: "+element.getKey());
+                System.out.println("");
+            }
+        }
+        Map<Room, Integer> roomMap = ReadAndWriteCSV.readRoom();
+        System.out.println("==========List Room Service Maintenance==========");
+        for (Map.Entry<Room, Integer> element: roomMap.entrySet()) {
+            if (element.getValue()>=5){
+                System.out.println("Maintain list: "+element.getKey());
+                System.out.println("");
             }
         }
     }
 
     @Override
     public void addVilla() {
-        System.out.print("Enter service code: ");
+        System.out.print("Enter service code (example: SVVL-YYYY): ");
         String serviceCode = Validate.regexStr(scanner.nextLine(), CHECK_VILLA_SERVICE_CODE, "invalid!");
-        System.out.print("Enter service name: ");
+        System.out.print("Enter service name (first letter must be uppercase): ");
         String serviceName= Validate.regexStr(scanner.nextLine(),CHECK_SERVICE_NAME,"Invalid");
-        System.out.print("Enter usable area: ");
+        System.out.print("Enter usable area (minimum is 30m2): ");
         double useArea= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_AREA, "Invalid"));
-        System.out.print("Enter cost: ");
+        System.out.print("Enter cost (positive number): ");
         double cost= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_COST, "Invalid"));
-        System.out.print("Enter maximum people: ");
+        System.out.print("Enter maximum people (maximum is 20): ");
         int numberOfPeople= Integer.parseInt(Validate.regexStr(scanner.nextLine(), CHECK_NUMBER_OF_PEOPLE, "Invalid"));
 
         String[] rentalTypeArr={"Year","Month","Day","Hour"};
@@ -119,11 +156,11 @@ public class FacilityServiceImpl implements IFacilityService {
                     break;
             }
         } while (flag);
-        System.out.print("Enter room standard: ");
+        System.out.print("Enter room standard (first letter must be uppercase): ");
         String roomStandard= Validate.regexStr(scanner.nextLine(),CHECK_SERVICE_NAME,"Invalid");
-        System.out.print("Enter pool area: ");
+        System.out.print("Enter pool area (minimum is 30m2): ");
         double poolArea= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_AREA, "Invalid"));
-        System.out.print("Enter floor: ");
+        System.out.print("Enter floor (positive number): ");
         int floor= Integer.parseInt(Validate.regexStr(scanner.nextLine(), CHECK_COST, "Invalid"));
 
         Villa villa = new Villa(serviceCode,serviceName,useArea,cost,numberOfPeople,rentalType,roomStandard,poolArea,floor);
@@ -135,15 +172,15 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void addHouse() {
-        System.out.print("Enter service code: ");
+        System.out.print("Enter service code (example: SVHO-YYYY): ");
         String serviceCode= Validate.regexStr(scanner.nextLine(), CHECK_HOUSE_SERVICE_CODE, "invalid!");
-        System.out.print("Enter service name: ");
+        System.out.print("Enter service name (first letter must be uppercase): ");
         String serviceName= Validate.regexStr(scanner.nextLine(),CHECK_SERVICE_NAME,"Invalid");
-        System.out.print("Enter usable area: ");
+        System.out.print("Enter usable area (minimum is 30m2): ");
         double useArea= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_AREA, "Invalid"));
-        System.out.print("Enter cost: ");
+        System.out.print("Enter cost (positive number): ");
         double cost= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_COST, "Invalid"));
-        System.out.print("Enter maximum people: ");
+        System.out.print("Enter maximum people (maximum is 20): ");
         int numberOfPeople= Integer.parseInt(Validate.regexStr(scanner.nextLine(), CHECK_NUMBER_OF_PEOPLE, "Invalid"));
 
         String[] rentalTypeArr={"Year","Month","Day","Hour"};
@@ -176,9 +213,9 @@ public class FacilityServiceImpl implements IFacilityService {
                     break;
             }
         } while (flag);
-        System.out.print("Enter room standard: ");
-        String roomStandard= scanner.nextLine();
-        System.out.print("Enter floor: ");
+        System.out.print("Enter room standard (first letter must be uppercase): ");
+        String roomStandard= Validate.regexStr(scanner.nextLine(),CHECK_SERVICE_NAME,"Invalid");
+        System.out.print("Enter floor (positive number): ");
         int floor= Integer.parseInt(Validate.regexStr(scanner.nextLine(), CHECK_COST, "Invalid"));
 
         House house = new House(serviceCode,serviceName,useArea,cost,numberOfPeople,rentalType,roomStandard,floor);
@@ -190,15 +227,15 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void addRoom() {
-        System.out.print("Enter service code: ");
+        System.out.print("Enter service code (example: SVRO-YYYY): ");
         String serviceCode= Validate.regexStr(scanner.nextLine(), CHECK_ROOM_SERVICE_CODE, "invalid!");
-        System.out.print("Enter service name: ");
+        System.out.print("Enter service name (first letter must be uppercase): ");
         String serviceName= Validate.regexStr(scanner.nextLine(),CHECK_SERVICE_NAME,"Invalid");
-        System.out.print("Enter usable area: ");
+        System.out.print("Enter usable area (minimum is 30m2): ");
         double useArea= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_AREA, "Invalid"));
-        System.out.print("Enter cost: ");
+        System.out.print("Enter cost (positive number): ");
         double cost= Double.parseDouble(Validate.regexStr(scanner.nextLine(), CHECK_COST, "Invalid"));
-        System.out.print("Enter maximum people: ");
+        System.out.print("Enter maximum people (maximum is 20): ");
         int numberOfPeople= Integer.parseInt(Validate.regexStr(scanner.nextLine(), CHECK_NUMBER_OF_PEOPLE, "Invalid"));
 
         String[] rentalTypeArr={"Year","Month","Day","Hour"};
@@ -231,8 +268,8 @@ public class FacilityServiceImpl implements IFacilityService {
                     break;
             }
         } while (flag);
-        System.out.print("Enter extra service: ");
-        String extraService= scanner.nextLine();
+        System.out.print("Enter extra service (first letter must be uppercase): ");
+        String extraService= Validate.regexStr(scanner.nextLine(),CHECK_SERVICE_NAME,"Invalid");
 
 
         Room room = new Room(serviceCode,serviceName,useArea,cost,numberOfPeople,rentalType,extraService);

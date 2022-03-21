@@ -27,8 +27,9 @@ public class CustomerServiceImpl implements ICustomerService {
     @Override
     public void display() {
         List<Customer> customerList = ReadAndWriteCSV.readCustomer();
+        System.out.println("==========Customer List==========");
         for (int i=0; i<customerList.size(); i++){
-            System.out.println((i+1)+". "+customerList.get(i));
+            System.out.println(+(i+1)+". "+customerList.get(i));
         }
     }
 
@@ -36,25 +37,37 @@ public class CustomerServiceImpl implements ICustomerService {
     public void edit() {
         List<Customer> customerList = ReadAndWriteCSV.readCustomer();
         display();
-        System.out.println("Enter position customer of list you want to edit");
-        int index = 0;
-        try {
-            index = Integer.parseInt(scanner.nextLine());
-        } catch (NumberFormatException e){
-            System.out.println("wrong format input! Please input again!");
+        boolean flag=true;
+        while (flag){
+            System.out.println("Enter customer's id you want to edit");
+            String id=scanner.nextLine();
+            for (Customer customer:customerList) {
+                if (id.equals(customer.getCustomerID())){
+                    System.out.println(customer.toString()+"\n"+
+                            "Do you want to edit this customer Y/N");
+                    String choice = scanner.nextLine().toUpperCase();
+                    if (choice.contains("Y")){
+                        create();
+                        customer.setCustomerID(customerID);
+                        customer.setName(name);
+                        customer.setBirthDay(birthDay);
+                        customer.setGender(gender);
+                        customer.setiDCard(iDCard);
+                        customer.setPhone(phone);
+                        customer.setEmail(email);
+                        customer.setCustomerType(customerType);
+                        customer.setAddress(address);
+                        ReadAndWriteCSV.writeCustomer(customerList,false);
+                        System.out.println("Update successful!");
+                        flag=false;
+                        break;
+                    } else {
+                        flag=false;
+                        break;
+                    }
+                }
+            }
         }
-        create();
-        customerList.get(index-1).setCustomerID(customerID);
-        customerList.get(index-1).setName(name);
-        customerList.get(index-1).setBirthDay(birthDay);
-        customerList.get(index-1).setGender(gender);
-        customerList.get(index-1).setiDCard(iDCard);
-        customerList.get(index-1).setPhone(phone);
-        customerList.get(index-1).setEmail(email);
-        customerList.get(index-1).setCustomerType(customerType);
-        customerList.get(index-1).setAddress(address);
-        ReadAndWriteCSV.writeCustomer(customerList,false);
-        System.out.println("Update successful!");
     }
 
     public void create(){

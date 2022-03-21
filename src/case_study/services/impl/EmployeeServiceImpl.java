@@ -1,5 +1,6 @@
 package case_study.services.impl;
 
+import case_study.models.Customer;
 import case_study.models.Employee;
 import case_study.services.IEmployeeService;
 import case_study.utils.ReadAndWriteCSV;
@@ -14,8 +15,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
     private String name, birthDay, gender, iDCard, phone, email, employeeID, degree, position, salary;
     private static List<Employee> employeeList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
-    String[] degreeArr = {"Trung cấp","Cao đẳng","Đại học","Sau Đại học"};
-    String[] positionArr={"Lễ tân","Phục vụ","Chuyên viên","Giám sát","Quản lý","Giám đốc"};
+    String[] degreeArr = {"Intermediate's level","Associate's  level","Graduates","Postgraduate's level"};
+    String[] positionArr={"Receptionist","Waitress","Expert","Supervisor","Manager","Director"};
 
     static final String CHECK_AGE = "^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$";
 
@@ -30,6 +31,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
     @Override
     public void display() {
         List<Employee> employeeList = ReadAndWriteCSV.readEmployee();
+        System.out.println("==========Employee List==========");
         for (int i=0; i<employeeList.size(); i++){
             System.out.println((i+1)+". "+employeeList.get(i));
         }
@@ -60,10 +62,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
         boolean flag=false;
         do {
             System.out.println("Level of degree\n" +
-                    "1. Trung cấp\n" +
-                    "2. Cao đẳng\n" +
-                    "3. Đại học\n" +
-                    "4. Sau đại học\n" +
+                    "1. Intermediate's level\n" +
+                    "2. Associate's  level\n" +
+                    "3. Graduates\n" +
+                    "4. Postgraduate's level\n" +
                     "Please choice!");
             try {
                 choice1 = Integer.parseInt(scanner.nextLine());
@@ -85,12 +87,12 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
         do {
             System.out.println("Level of position\n" +
-                    "1. Lễ tân\n" +
-                    "2. Phục vụ\n" +
-                    "3. Chuyên viên\n" +
-                    "4. Giám sát\n" +
-                    "5. Quản lý\n" +
-                    "6. Giám đốc\n" +
+                    "1. Receptionist\n" +
+                    "2. Waitress\n" +
+                    "3. Expert\n" +
+                    "4. Supervisor\n" +
+                    "5. Manager\n" +
+                    "6. Director\n" +
                     "Please choice!");
             try {
                 choice2 = Integer.parseInt(scanner.nextLine());
@@ -115,29 +117,40 @@ public class EmployeeServiceImpl implements IEmployeeService {
         salary = scanner.nextLine();
     }
 
-    public void update(){
-//        List<Employee> employeeList = ReadAndWriteCSV.readEmployee();
+    public void update() {
+        List<Employee> employeeList = ReadAndWriteCSV.readEmployee();
         display();
-        System.out.println("Enter position employee of list you want to edit");
-        int index=0;
-        try {
-            index = Integer.parseInt(scanner.nextLine());
-        } catch (NumberFormatException e){
-            System.out.println("wrong format input! Please input again!");
+        boolean flag = true;
+        while (flag) {
+            System.out.println("Enter employee's id you want to edit");
+            String id = scanner.nextLine();
+            for (Employee employee : employeeList) {
+                if (id.equals(employee.getEmployeeID())) {
+                    System.out.println(employee.toString() + "\n" +
+                            "Do you want to edit this employee Y/N");
+                    String choice = scanner.nextLine().toUpperCase();
+                    if (choice.contains("Y")) {
+                        create();
+                        employee.setEmployeeID(employeeID);
+                        employee.setName(name);
+                        employee.setBirthDay(birthDay);
+                        employee.setGender(gender);
+                        employee.setiDCard(iDCard);
+                        employee.setPhone(phone);
+                        employee.setEmail(email);
+                        employee.setDegree(degree);
+                        employee.setPosition(position);
+                        employee.setSalary(salary);
+                        ReadAndWriteCSV.writeEmployee(employeeList, false);
+                        System.out.println("Update successful!");
+                        flag = false;
+                        break;
+                    } else {
+                        flag = false;
+                        break;
+                    }
+                }
+            }
         }
-
-        create();
-        employeeList.get(index-1).setEmployeeID(employeeID);
-        employeeList.get(index-1).setName(name);
-        employeeList.get(index-1).setBirthDay(birthDay);
-        employeeList.get(index-1).setGender(gender);
-        employeeList.get(index-1).setiDCard(iDCard);
-        employeeList.get(index-1).setPhone(phone);
-        employeeList.get(index-1).setEmail(email);
-        employeeList.get(index-1).setDegree(degree);
-        employeeList.get(index-1).setPosition(position);
-        employeeList.get(index-1).setSalary(salary);
-        ReadAndWriteCSV.writeEmployee(employeeList, false);
-        System.out.println("Update successful!");
     }
 }

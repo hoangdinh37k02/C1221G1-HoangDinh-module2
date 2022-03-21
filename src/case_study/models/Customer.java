@@ -37,11 +37,9 @@ public class Customer extends Person {
     @Override
     public String toString() {
         return
-                "Customer{" +
                 "customerID='" + customerID + '\'' + super.toString()+
                 ", customerType='" + customerType + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+                ", address='" + address + '\'';
     }
 
     public String getInfoToCSV(){

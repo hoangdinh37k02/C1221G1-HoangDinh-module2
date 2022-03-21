@@ -9,8 +9,10 @@ import java.util.List;
 import java.util.Map;
 
 public class ReadAndWriteCSV {
-    public static final String BOOKING_FILE = "src\\case_study\\datas\\Booking.csv";
-    public static final String CONTRACT_FILE = "src\\case_study\\datas\\Contract.csv";
+    public static final String BOOKING_VILLA_FILE = "src\\case_study\\datas\\bookingvilla";
+    public static final String BOOKING_HOUSE_FILE = "src\\case_study\\datas\\bookinghouse.csv";
+    public static final String BOOKING_ROOM_FILE = "src\\case_study\\datas\\bookingroom";
+    public static final String CONTRACT_FILE = "src\\case_study\\datas\\contract.csv";
     public static final String CUSTOMER_FILE = "src\\case_study\\datas\\Customer.csv";
     public static final String EMPLOYEE_FILE = "src\\case_study\\datas\\Employee.csv";
     public static final String HOUSE_FILE = "src\\case_study\\datas\\House.csv";
@@ -259,4 +261,6 @@ public class ReadAndWriteCSV {
 
         return roomMap;
     }
+
+    
 }

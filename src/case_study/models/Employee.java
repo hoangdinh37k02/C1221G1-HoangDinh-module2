@@ -46,12 +46,10 @@ public class Employee extends Person{
     @Override
     public String toString() {
         return
-                "Employee{" +
                 "employeeID='" + employeeID + '\'' + super.toString()+
                 ", degree='" + degree + '\'' +
                 ", position='" + position + '\'' +
-                ", salary='" + salary + '\'' +
-                '}';
+                ", salary='" + salary + '\'';
     }
 //    String employeeID,String name, String birthDay, String gender, String iDCard,
 //    String phone, String email,  String degree, String position, String salary

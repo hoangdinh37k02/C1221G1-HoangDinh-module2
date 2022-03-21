@@ -64,13 +64,12 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "hoTen='" + name + '\'' +
-                ", ngaySinh='" + birthDay + '\'' +
-                ", gioiTinh='" + gender + '\'' +
-                ", SoCMND='" + iDCard + '\'' +
-                ", dienThoai='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return
+                "name='" + name + '\'' +
+                ", birthDay='" + birthDay + '\'' +
+                ", gender='" + gender + '\'' +
+                ", iDCard='" + iDCard + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'';
     }
 }
