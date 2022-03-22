@@ -3,6 +3,7 @@ package extra_exercise.service.impl;
 import extra_exercise.model.BenhNhanThuong;
 import extra_exercise.model.BenhNhanVIP;
 import extra_exercise.service.IBenhNhan;
+import extra_exercise.ultil.NotFoundFileException;
 import extra_exercise.ultil.ReadAndWrite;
 import extra_exercise.ultil.Validate;
 
@@ -15,7 +16,7 @@ public class BenhNhanVIPServiceImpl implements IBenhNhan {
     static List<BenhNhanVIP> benhNhanVIPList = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
     static final String MA_BENH_AN = "^[B][A]\\-\\d{3}$";
-    static final String CHECK_AGE = "^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$";
+    static final String CHECK_DATE = "^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$";
 
     @Override
     public void add() {
@@ -29,9 +30,9 @@ public class BenhNhanVIPServiceImpl implements IBenhNhan {
         System.out.print("Nhập tên bệnh nhân: ");
         String tenBenhNhan = scanner.nextLine();
         System.out.print("Nhập tên ngày nhập viện dd/mm/yyyy: ");
-        String ngayNhapvien = scanner.nextLine();
+        String ngayNhapvien = Validate.regexStr(scanner.nextLine(), CHECK_DATE,"Không hợp lệ");
         System.out.print("Nhập tên ngày xuất viện dd/mm/yyy: ");
-        String ngayXuatvien = scanner.nextLine();
+        String ngayXuatvien = Validate.regexStr(scanner.nextLine(), CHECK_DATE,"Không hợp lệ");
         System.out.print("Nhập tên lý do: ");
         String lydo = scanner.nextLine();
         String[] vipList = {"VIP 1", "VIP 2", "VIP 3"};
@@ -59,7 +60,7 @@ public class BenhNhanVIPServiceImpl implements IBenhNhan {
             }
         }while (!flag);
         System.out.print("Nhập thời hạn VIP: ");
-        String thoiHan = scanner.nextLine();
+        String thoiHan = Validate.regexStr(scanner.nextLine(), CHECK_DATE,"Không hợp lệ");
 
         BenhNhanVIP benhNhanVIP = new BenhNhanVIP(soThuTu,maBenhAn,tenBenhNhan,ngayNhapvien,
                 ngayXuatvien,lydo,loaiVip,thoiHan);
@@ -78,7 +79,7 @@ public class BenhNhanVIPServiceImpl implements IBenhNhan {
     }
 
     @Override
-    public void delete() {
+    public void delete() throws NotFoundFileException {
         List<BenhNhanVIP> benhNhanVIPList = ReadAndWrite.readBenhNhanVIP();
         display();
         boolean flag = true;
@@ -95,7 +96,13 @@ public class BenhNhanVIPServiceImpl implements IBenhNhan {
                         benhNhanVIPList.remove(i);
                         ReadAndWrite.writeBenhNhanVIP(benhNhanVIPList, false);
                         break;
+                    } else {
+                        System.out.println("Trở về main menu");
+                        break;
                     }
+                } else {
+                    throw new NotFoundFileException("Bệnh án không tồn tại\n" +
+                            "Vui lòng trở về menu chính");
                 }
             }
             System.out.println("Bệnh án không tồn tại\n" +

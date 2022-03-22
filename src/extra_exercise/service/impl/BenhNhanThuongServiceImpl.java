@@ -17,10 +17,8 @@ public class BenhNhanThuongServiceImpl implements IBenhNhan {
     static Scanner scanner = new Scanner(System.in);
     static final String MA_BENH_AN = "^[B][A]\\-\\d{3}$";
     static final String MA_BENH_NHAN = "^[B][N]\\-\\d{3}$";
-    static final String CHECK_AGE = "^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$";
+    static final String CHECK_DATE = "^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$";
 
-//int soThuTu, String maBenhAn, String tenBenhNhan,
-//                          String ngayNhapvien, String ngayXuatvien, String lydo, double vienPhi
     @Override
     public void add() {
         int soThuTu = 1;
@@ -33,9 +31,9 @@ public class BenhNhanThuongServiceImpl implements IBenhNhan {
         System.out.print("Nhập tên bệnh nhân: ");
         String tenBenhNhan = scanner.nextLine();
         System.out.print("Nhập tên ngày nhập viện dd/mm/yyyy: ");
-        String ngayNhapvien = scanner.nextLine();
+        String ngayNhapvien = Validate.regexStr(scanner.nextLine(), CHECK_DATE,"Không hợp lệ");
         System.out.print("Nhập tên ngày xuất viện dd/mm/yyyy: ");
-        String ngayXuatvien = scanner.nextLine();
+        String ngayXuatvien = Validate.regexStr(scanner.nextLine(), CHECK_DATE,"Không hợp lệ");
         System.out.print("Nhập tên lý do: ");
         String lyDo = scanner.nextLine();
         System.out.print("Nhập viện phí: ");
@@ -57,7 +55,7 @@ public class BenhNhanThuongServiceImpl implements IBenhNhan {
     }
 
     @Override
-    public void delete () {
+    public void delete () throws NotFoundFileException {
         List<BenhNhanThuong> benhNhanThuongList = ReadAndWrite.readBenhNhanThuong();
         display();
         boolean flag = true;
@@ -73,12 +71,17 @@ public class BenhNhanThuongServiceImpl implements IBenhNhan {
                     if ("Y".contains(decide)){
                         benhNhanThuongList.remove(i);
                         ReadAndWrite.writeBenhNhanThuong(benhNhanThuongList, false);
+                        System.out.println("Xóa thành công");
+                        break;
+                    } else {
+                        System.out.println("Trở về main menu");
                         break;
                     }
+                } else {
+                    throw new NotFoundFileException("Bệnh án không tồn tại\n" +
+                            "Vui lòng trở về menu chính");
                 }
             }
-            System.out.println("Bệnh án không tồn tại\n" +
-                    "Vui lòng nhập lại");
         }
     }
 }

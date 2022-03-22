@@ -52,11 +52,19 @@ public class Controller {
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice){
                 case 1:
-                    benhNhanThuongService.delete();
+                    try {
+                        benhNhanThuongService.delete();
+                    } catch (NotFoundFileException e) {
+                        e.printStackTrace();
+                    }
                     mainMenu();
                     break;
                 case 2:
-                    benhNhanVIPService.delete();
+                    try {
+                        benhNhanVIPService.delete();
+                    } catch (NotFoundFileException e) {
+                        e.printStackTrace();
+                    }
                     mainMenu();
                     break;
                 default:
