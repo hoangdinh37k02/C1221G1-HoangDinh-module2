@@ -29,9 +29,14 @@ public class ExportProduct extends Product{
 
     @Override
     public String toString() {
-        return
+        return  super.toString()+
                 "exportPrice=" + exportPrice +
                 ", exportCountry='" + exportCountry + '\''
                ;
+    }
+
+    public String getInFoToCSV(){
+        return this.getId()+","+this.getSku()+","+this.getName()+","+this.getPrice()+","+this.getQuantity()
+                +","+this.getManufacture()+","+this.getExportPrice()+","+this.getExportCountry();
     }
 }

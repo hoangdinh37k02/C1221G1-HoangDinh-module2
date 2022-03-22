@@ -39,9 +39,14 @@ public class ImportProduct extends Product {
 
     @Override
     public String toString() {
-        return
+        return  super.toString()+
                 "importPrice=" + importPrice +
                 ", importProvince='" + importProvince + '\'' +
                 ", importTax=" + importTax;
+    }
+
+    public String getInFoToCSV(){
+        return this.getId()+","+this.getSku()+","+this.getName()+","+this.getPrice()+","+this.getQuantity()
+                +","+this.getManufacture()+","+this.getImportPrice()+","+this.getImportPrice()+","+this.getImportTax();
     }
 }
