@@ -54,27 +54,28 @@ public class ImportProductServiceImpl implements IService {
         List<ImportProduct> importProductList = ReadAndWriteToCSV.readImport();
         display();
         boolean flag = true;
-        while (flag){
-            System.out.print("Nhập SKU: ");
-            String sku = scanner.nextLine();
-            for (int i =0; i<importProductList.size(); i++) {
-                if (sku.equals(importProductList.get(i).getSku())){
-                    flag = false;
-                    System.out.println(importProductList.get(i).toString()+"\n" +
-                            "Bạn có muốn xóa sản phẩm này Y/N");
-                    String decide = scanner.nextLine().toUpperCase();
-                    if ("Y".contains(decide)){
-                        importProductList.remove(i);
-                        ReadAndWriteToCSV.writeImport(importProductList,false);
-                        System.out.println("Xóa thành công");
-                        break;
-                    } else {
-                        break;
-                    }
+        System.out.print("Nhập SKU: ");
+        String sku = scanner.nextLine();
+        for (int i = 0; i < importProductList.size(); i++) {
+            if (sku.equals(importProductList.get(i).getSku())) {
+                flag = false;
+                System.out.println(importProductList.get(i).toString() + "\n" +
+                        "Bạn có muốn xóa sản phẩm này Y/N");
+                String decide = scanner.nextLine().toUpperCase();
+                if ("Y".contains(decide)) {
+                    importProductList.remove(i);
+                    ReadAndWriteToCSV.writeImport(importProductList, false);
+                    System.out.println("Xóa thành công");
+                    break;
                 } else {
-                    throw new NotFoundProductException("Sản phẩm không tồn tại");
+                    break;
                 }
+            } else {
+                throw new NotFoundProductException("Sản phẩm không tồn tại");
             }
+        }
+        if (flag) {
+            throw new NotFoundProductException("Sản phẩm không tồn tại");
         }
     }
 

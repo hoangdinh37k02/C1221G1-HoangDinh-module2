@@ -49,27 +49,26 @@ public class ExportProductServiceImpl implements IService {
         List<ExportProduct> exportProductList = ReadAndWriteToCSV.readExport();
         display();
         boolean flag = true;
-        while (flag){
-            System.out.print("Nhập SKU: ");
-            String sku = scanner.nextLine();
-            for (int i =0; i<exportProductList.size(); i++) {
-                if (sku.equals(exportProductList.get(i).getSku())){
-                    flag = false;
-                    System.out.println(exportProductList.get(i).toString()+"\n" +
-                            "Bạn có muốn xóa sản phẩm này Y/N");
-                    String decide = scanner.nextLine().toUpperCase();
-                    if ("Y".contains(decide)){
-                        exportProductList.remove(i);
-                        ReadAndWriteToCSV.writeExport(exportProductList,false);
-                        System.out.println("Xóa thành công");
-                        break;
-                    } else {
-                        break;
-                    }
+        System.out.print("Nhập SKU: ");
+        String sku = scanner.nextLine();
+        for (int i = 0; i < exportProductList.size(); i++) {
+            if (sku.equals(exportProductList.get(i).getSku())) {
+                flag = false;
+                System.out.println(exportProductList.get(i).toString() + "\n" +
+                        "Bạn có muốn xóa sản phẩm này Y/N");
+                String decide = scanner.nextLine().toUpperCase();
+                if ("Y".contains(decide)) {
+                    exportProductList.remove(i);
+                    ReadAndWriteToCSV.writeExport(exportProductList, false);
+                    System.out.println("Xóa thành công");
+                    break;
                 } else {
-                    throw new NotFoundProductException("Sản phẩm không tồn tại");
+                    break;
                 }
             }
+        }
+        if (flag) {
+            throw new NotFoundProductException("Sản phẩm không tồn tại");
         }
     }
 
