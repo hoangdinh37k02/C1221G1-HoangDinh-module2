@@ -11,7 +11,7 @@ public class Controller {
     AuthenticPhoneServiceImpl authenticPhoneService = new AuthenticPhoneServiceImpl();
     HandPhoneServiceImpl handPhoneService = new HandPhoneServiceImpl();
     public void mainMenu(){
-        int choice;
+        String choice;
         do {
             System.out.println("------PHONE MANAGEMENT SYSTEM------\n" +
                     "1. Add\n" +
@@ -20,27 +20,27 @@ public class Controller {
                     "4. Search\n" +
                     "5. Exit\n" +
                     "Please choice!");
-            choice = Integer.parseInt(scanner.nextLine());
+            choice = scanner.nextLine();
             switch (choice){
-                case 1:
+                case "1":
                     add();
                     break;
-                case 2:
+                case "2":
                     delete();
                     break;
-                case 3:
+                case "3":
                     display();
                     break;
-                case 4:
+                case "4":
                     search();
                     break;
-                case 5:
+                case "5":
                     System.exit(5);
                 default:
                     System.out.println("Invalid\n" +
                             "Please choice again!");
             }
-        } while (choice!=5);
+        } while (!"5".equals(choice));
     }
 
     private void search() {
